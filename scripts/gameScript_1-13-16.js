@@ -7,7 +7,7 @@ $(document).ready(function() {
             });
 
     function start(){
-        $("#intro").append("TEXT-BASED HORROR!</br>A game created by Prosper I.T. Consulting Inc. (c) 2015, all rights reserved.");
+        $("#intro").append("TEXT-BASED HORROR!");
         naming();
 
     }

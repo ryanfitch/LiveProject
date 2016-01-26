@@ -1,6 +1,19 @@
 body {
     font-family: tahoma;
-    font-size: 26px;
+    font-size: 16px;
     color: orange;
     text-align: center;
+}
+
+#intro {
+    font-size: 30px;
+}
+
+#button {
+    padding: 3px;
+    margin: 5px;
+}
+
+footer {
+    font-size: 10px;
 }
