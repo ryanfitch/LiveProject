@@ -16,27 +16,22 @@ $(document).ready(function() {
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
             if(name!=""){
-            $("#instructions").append("</br>Is "+name+" my correct name? </br>Type yes or no.");
+            $("#instructions").append("</br>Is "+name+" my correct name? </br>Hit yes or no.");
             }
             else{
                 $("#instructions").append("<br>Please type in my name.");
                 naming();
             }
-            $("#button").one("click",function(){
-            var choice = document.getElementById("myText").value.toLowerCase();
-                if(choice=="yes" || choice=="y"){
+            $("#yes1").click(function(){
                     namingnaming(name);
-                }
-                else if(choice=="no" || choice =="n"){
+                });
+            $("#no2").click(function(){
                     naming();
-                }
-                else{
-                    naming();
-                }
-
-        })
+                });
         })
     }
+
+  
 
     function namingnaming(name){
         $("#story").css("border","2px solid black")
