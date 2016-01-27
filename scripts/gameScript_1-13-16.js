@@ -14,6 +14,7 @@ $(document).ready(function() {
 
     }
     function naming(){
+        $("#textInput").show();
         $("#instructions").append("</br>What is my Name?");
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
@@ -27,10 +28,10 @@ $(document).ready(function() {
             $("#textInput").hide();
             $("#yes1").show();
             $("#no2").show();
-            $("#yes1").click(function(){
+            $("#yes1").one( "click", function(){
                     namingnaming(name);
                 });
-            $("#no2").click(function(){
+            $("#no2").one( "click", function(){
                     naming();
                 });
         })
@@ -62,12 +63,12 @@ $(document).ready(function() {
         //             $("#instructions").append("</br>Please type yes or no.");
         //             play();
         //         }
-        $("#yes1").click(function(){
+        $("#yes1").one( "click", function(){
                     $("#instructions").append("</br>Goodluck!");
                     intro();
                     });
             
-            $("#no2").click(function(){
+            $("#no2").one( "click", function(){
                     $("#instructions").append("</br>Wise choice. Come back if you change your mind...");
                     return;
                 });
@@ -81,24 +82,35 @@ $(document).ready(function() {
         firstchoice();
     }
     function firstchoice(){
-        $("#instructions").append("<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Type 1 or 2: ");
-        $("#button").one("click",function(){
-            var choice = document.getElementById("myText").value;
-            if(choice=="1"){
-                msg = "I turned around and walked away from the house. A large figure walked toward me on the path. In its hand I saw what appeared to be an ax. \"Hello?\" I ventured. No response, just a quickened pace. Its arm lifted the weapon high into the air. I turned to run but I was too late. The ax brutally removed my head from its shoulders and this is the end of my story.";
-                deadanddead(msg,firstchoice);
-            }
-            else if(choice=="2"){
-                msg = "I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet."
-                $("#instructions").html("<p>"+msg+"</p>");
-                firstfirstchoice();
+        $("#instructions").append("<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
+        $("#yes1").one( "click", function(){
+                    msg = "I turned around and walked away from the house. A large figure walked toward me on the path. In its hand I saw what appeared to be an ax. \"Hello?\" I ventured. No response, just a quickened pace. Its arm lifted the weapon high into the air. I turned to run but I was too late. The ax brutally removed my head from its shoulders and this is the end of my story.";
+                    deadanddead(msg,firstchoice);
+                    });
+            
+            $("#no2").one( "click", function(){
+                    msg = "I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet.";
+                    $("#instructions").html("<p>"+msg+"</p>");
+                    firstfirstchoice();
+                });
 
-            }
-            else{
-                $("#instructions").append("<br>Please type 1 or 2");
-                firstchoice();
-            }
-        })
+        // $("#button").one("click",function(){
+        //     var choice = document.getElementById("myText").value;
+        //     if(choice=="1"){
+        //         msg = "I turned around and walked away from the house. A large figure walked toward me on the path. In its hand I saw what appeared to be an ax. \"Hello?\" I ventured. No response, just a quickened pace. Its arm lifted the weapon high into the air. I turned to run but I was too late. The ax brutally removed my head from its shoulders and this is the end of my story.";
+        //         deadanddead(msg,firstchoice);
+        //     }
+        //     else if(choice=="2"){
+        //         msg = "I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet."
+        //         $("#instructions").html("<p>"+msg+"</p>");
+        //         firstfirstchoice();
+
+        //     }
+        //     else{
+        //         $("#instructions").append("<br>Please type 1 or 2");
+        //         firstchoice();
+        //     }
+        // })
 
     }
     function firstfirstchoice(){
