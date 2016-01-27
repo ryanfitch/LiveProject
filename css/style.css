@@ -14,6 +14,11 @@ body {
     margin: 5px;
 }
 
+#storyspan {
+    position: relative;
+    margin: auto;
+}
+
 footer {
     font-size: 10px;
 }
