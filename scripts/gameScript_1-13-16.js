@@ -7,6 +7,8 @@ $(document).ready(function() {
             });
 
     function start(){
+        $("#yes1").hide();
+        $("#no2").hide();
         $("#intro").append("TEXT-BASED HORROR!");
         naming();
 
@@ -22,6 +24,9 @@ $(document).ready(function() {
                 $("#instructions").append("<br>Please type in my name.");
                 naming();
             }
+            $("#textInput").hide();
+            $("#yes1").show();
+            $("#no2").show();
             $("#yes1").click(function(){
                     namingnaming(name);
                 });
@@ -34,33 +39,38 @@ $(document).ready(function() {
   
 
     function namingnaming(name){
-        $("#story").css("border","2px solid black")
-                    .css("width","500px");
-        $("#story").append("My name is "+name+"</br>The choices I make determine whether I live or die</br>This is my story");
+        // $("#story").css("border","2px solid black")
+        //             .css("width","500px");
+        $("#story").append("My name is "+name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>");
         play();
     }
 
     function play(){
-        $("#instructions").append("</br>Do you dare start this horrific journey?  Type yes or no: ");
-        $("#button").one("click",function(){
-            var choice = document.getElementById("myText").value.toLowerCase();
-            $("#instructions").append("</br>"+choice);
-                if(choice=="yes" || choice=="y"){
+        $("#instructions").append("</br>Do you dare start this horrific journey?  Hit yes or no: ");
+        // $("#button").one("click",function(){
+        //     var choice = document.getElementById("myText").value.toLowerCase();
+        //     $("#instructions").append("</br>"+choice);
+        //         if(choice=="yes" || choice=="y"){
+        //             $("#instructions").append("</br>Goodluck!");
+        //             intro();
+        //             }
+        //         else if(choice=="no" || choice=="n"){
+        //             $("#instructions").append("</br>Wise choice. Come back if you change your mind...");
+        //             return;
+        //         }
+        //         else{
+        //             $("#instructions").append("</br>Please type yes or no.");
+        //             play();
+        //         }
+        $("#yes1").click(function(){
                     $("#instructions").append("</br>Goodluck!");
                     intro();
-                    }
-                else if(choice=="no" || choice=="n"){
+                    });
+            
+            $("#no2").click(function(){
                     $("#instructions").append("</br>Wise choice. Come back if you change your mind...");
                     return;
-                }
-                else{
-                    $("#instructions").append("</br>Please type yes or no.");
-                    play();
-                }
-
-
-
-        })
+                });
 
     }
 
