@@ -1,5 +1,5 @@
 body {
-    font-family: tahoma;
+    font-family: 'Special Elite', serif;
     font-size: 16px;
     color: orange;
     text-align: center;
@@ -16,4 +16,26 @@ body {
 
 footer {
     font-size: 10px;
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:0; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:0; }
+}
+@-moz-keyframes blink{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:0; }
 }

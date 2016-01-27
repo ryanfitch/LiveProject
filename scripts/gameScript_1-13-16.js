@@ -15,14 +15,18 @@ $(document).ready(function() {
     }
     function naming(){
         $("#textInput").show();
-        $("#instructions").append("</br>What is my Name?");
+        // $("#instructions").append("</br>What is my Name?");
+        $("#instructions").typed({strings: ["</br>What is my Name?"]});
+        $("#instructions").empty();
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
-            if(name!=""){
-            $("#instructions").append("</br>Is "+name+" my correct name? </br>Hit yes or no.");
+            if(name!="")
+            {
+            // $("#instructions").append("</br>Is "+name+" my correct name? </br>Hit yes or no.");
+            $("#instructions2").typed({strings: ["</br>Is " +name+" my correct name? </br>Hit yes or no."]});
             }
             else{
-                $("#instructions").append("<br>Please type in my name.");
+                $("#instructions2").append("<br>Please type in my name.");
                 naming();
             }
             $("#textInput").hide();
@@ -42,12 +46,19 @@ $(document).ready(function() {
     function namingnaming(name){
         // $("#story").css("border","2px solid black")
         //             .css("width","500px");
-        $("#story").append("My name is "+name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>");
+        // $("#story").append("My name is "+name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>");
+        // play();
+        $("#story").typed({strings: ["My name is " +name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>"], typeSpeed: 0
+        });
+        $("#instructions").empty();
+        $("#story").empty();
         play();
     }
-
     function play(){
-        $("#instructions").append("</br>Do you dare start this horrific journey?  Hit yes or no: ");
+        // $("#instructions").append("</br>Do you dare start this horrific journey?  Hit yes or no: ");
+        $("#instructions").empty();
+        $("#instructions").typed({strings: ["^1000 Do you dare start this horrific journey?  Hit yes or no:"], typeSpeed: 0
+            });
         // $("#button").one("click",function(){
         //     var choice = document.getElementById("myText").value.toLowerCase();
         //     $("#instructions").append("</br>"+choice);
