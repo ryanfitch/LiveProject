@@ -15,15 +15,15 @@ $(document).ready(function() {
     }
     function naming(){
         $("#textInput").show();
-        // $("#instructions").append("</br>What is my Name?");
-        $("#instructions").typed({strings: ["</br>What is my Name?"]});
+        $("#instructions").replaceWith("<p id='instructions'></p>");
+        $("#instructions").typed({strings: ["^1000</br>What is my Name?"]});
         $("#instructions").empty();
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
             if(name!="")
             {
             // $("#instructions").append("</br>Is "+name+" my correct name? </br>Hit yes or no.");
-            $("#instructions2").typed({strings: ["</br>Is " +name+" my correct name? </br>Hit yes or no."]});
+            $("#instructions2").typed({strings: ["Is " +name+" my correct name? </br>Hit yes or no."]});
             }
             else{
                 $("#instructions2").append("<br>Please type in my name.");
@@ -36,6 +36,9 @@ $(document).ready(function() {
                     namingnaming(name);
                 });
             $("#no2").one( "click", function(){
+                    $("#instructions").empty();
+                    $("#instructions2").empty();
+// bug: naming() doesn't run after being called.  this problem i believe is happening because the typed method isn't able to rewrite an element once something is already there.
                     naming();
                 });
         })
@@ -48,6 +51,7 @@ $(document).ready(function() {
         //             .css("width","500px");
         // $("#story").append("My name is "+name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>");
         // play();
+        $("#instructions2").empty();
         $("#story").typed({strings: ["My name is " +name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>"], typeSpeed: 0
         });
         $("#instructions").empty();
@@ -56,8 +60,8 @@ $(document).ready(function() {
     }
     function play(){
         // $("#instructions").append("</br>Do you dare start this horrific journey?  Hit yes or no: ");
-        $("#instructions").empty();
-        $("#instructions").typed({strings: ["^1000 Do you dare start this horrific journey?  Hit yes or no:"], typeSpeed: 0
+        $("#instructions2").empty();
+        $("#instructions3").typed({strings: ["^4500Do you dare start this horrific journey?  Hit yes or no:"], typeSpeed: 0
             });
         // $("#button").one("click",function(){
         //     var choice = document.getElementById("myText").value.toLowerCase();
@@ -75,12 +79,26 @@ $(document).ready(function() {
         //             play();
         //         }
         $("#yes1").one( "click", function(){
-                    $("#instructions").append("</br>Goodluck!");
+                    $("#instructions").replaceWith("<p id='instructions'></p>");
+                    // $("#instructions2").empty();
+                    // $("#instructions3").empty();
+                    // $("#instructions").append("</br>Goodluck!");
+//bug: "good luck" is appearing at the bottom of the page.  this problem i believe is happening because the typed method isn't able to rewrite an element once something is already there.
+                    $("#instructions").typed({strings: ["Goodluck!"], typeSpeed: 0
+            });
                     intro();
                     });
             
             $("#no2").one( "click", function(){
-                    $("#instructions").append("</br>Wise choice. Come back if you change your mind...");
+                    $("#instructions").empty();
+                    $("#instructions2").empty();
+                    $("#instructions3").empty();
+                    $("#story").empty();
+                    $("#textInput").hide();
+                    // $("#instructions").append("</br>Wise choice. Come back if you change your mind...");
+                    $("#instructions").replaceWith("<p id='instructions'></p>");
+                    $("#instructions").typed({strings: ["Wise choice.  Come back if you change your mind..."], typeSpeed: 0
+            });
                     return;
                 });
 
@@ -88,18 +106,34 @@ $(document).ready(function() {
 
 
     function intro(){
-    $("#instructions").html("<p><b>\"You were warned...\"</b></p>");
-    $("#instructions").append("</br>I awoke. Dizzied and surrounded by dark. My head was spinning and there was a </br>sharp pain in the upper right side of my skull.What am I doing here? \"Where is here?\" </br>I thought, First things first, orient myself. </br>I couldn't remember what had happened prior to my unconsciousness. I stood up and looked ahead. </br>There was a vague outline of a path that appeared to lead up to a house. I could barely make out an old mansion. </br>I looked behind myself and saw nothing but black. I heard what sounded like footsteps walking toward me from the rear.'")
-        firstchoice();
+    $("#instructions").replaceWith("<p id='instructions'></p>");
+    $("#instructions").typed({strings: ["You were warned..."], typeSpeed: 0});
+    $("#instructions2").replaceWith("<p id='instructions2'></p>");
+    $("#instructions3").replaceWith("<p id='instructions3'></p>");
+    // $("#instructions2").append("</br>I awoke. Dizzied and surrounded by dark. My head was spinning and there was a </br>sharp pain in the upper right side of my skull.What am I doing here? \"Where is here?\" </br>I thought, First things first, orient myself. </br>I couldn't remember what had happened prior to my unconsciousness. I stood up and looked ahead. </br>There was a vague outline of a path that appeared to lead up to a house. I could barely make out an old mansion. </br>I looked behind myself and saw nothing but black. I heard what sounded like footsteps walking toward me from the rear.'")
+    //     firstchoice();
+    $("#instructions2").typed({strings: ["^2500</br>I awoke. Dizzied and surrounded by dark. My head was spinning and there was a </br>sharp pain in the upper right side of my skull.  What am I doing here? \"Where is here?\" </br>I thought, First things first, orient myself. </br>I couldn't remember what had happened prior to my unconsciousness. I stood up and looked ahead. </br>There was a vague outline of a path that appeared to lead up to a house. I could barely make out an old mansion. </br>I looked behind myself and saw nothing but black. I heard what sounded like footsteps walking toward me from the rear.'"], typeSpeed: 0});
+    firstchoice();
     }
+    
+
     function firstchoice(){
-        $("#instructions").append("<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
+        // $("#instructions").append("<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
+        // $("#instructions3").empty();
+        $("#instructions3").replaceWith("<p id='instructions3'></p>");
+        $("#instructions3").typed({strings: ["^28000<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: "], typeSpeed: 0});
         $("#yes1").one( "click", function(){
+                    $("#instructions2").replaceWith("<p id='instructions2'></p>");
+                    $("#instructions3").replaceWith("<p id='instructions3'></p>");
+                    $("#instructions4").replaceWith("<p id='instructions4'></p>");
                     msg = "I turned around and walked away from the house. A large figure walked toward me on the path. In its hand I saw what appeared to be an ax. \"Hello?\" I ventured. No response, just a quickened pace. Its arm lifted the weapon high into the air. I turned to run but I was too late. The ax brutally removed my head from its shoulders and this is the end of my story.";
                     deadanddead(msg,firstchoice);
                     });
             
             $("#no2").one( "click", function(){
+                    $("#instructions2").replaceWith("<p id='instructions2'></p>");
+                    $("#instructions3").replaceWith("<p id='instructions3'></p>");
+                    $("#instructions4").replaceWith("<p id='instructions4'></p>");
                     msg = "I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet.";
                     $("#instructions").html("<p>"+msg+"</p>");
                     firstfirstchoice();
