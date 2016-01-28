@@ -60,9 +60,7 @@ $(document).ready(function() {
     }
 
     function addToInstructions(newInstruction, callback) {
-        // $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : 0 , callback : callback });
-        $('<p></p>').appendTo($("#instructions")).text(newInstruction);
-        callback && callback();
+        $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : 0 , callback : callback });
     }
 
     function play(){
