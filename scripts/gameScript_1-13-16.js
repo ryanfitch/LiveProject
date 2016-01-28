@@ -1,8 +1,6 @@
 $(document).ready(function() {
     $(function() {
-
             start();
-
             });
 
 
@@ -16,7 +14,7 @@ $(document).ready(function() {
 
     function naming(){
         $("#textInput").show();
-        addToInstructions("^1000</br>What is my Name?");
+        addToInstructions("^750</br>What is my Name?");
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
             if(name!="")
@@ -34,8 +32,6 @@ $(document).ready(function() {
                     namingnaming(name);
                 });
             $("#no2").one( "click", function(){
-                    $("#instructions").empty();
-                    $("#instructions2").empty();
                     naming();
                 });
         });
@@ -58,29 +54,29 @@ $(document).ready(function() {
         addToInstructions("^4500Do you dare start this horrific journey?  Hit yes or no:");
 
         $("#yes1").one( "click", function(){
-            addToInstructions('Goodluck!', function() {
-                intro();
+            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!', 'You were warned..."], typeSpeed: 0
             });
+            $("#instructions").empty();
+            intro();
         });
 
         $("#no2").one( "click", function(){
             $("#story").empty();
             $("#instructions").empty();
-            addToInstructions("Wise choice.  Come back if you change your mind...");
+            addToInstructions("Wise choice.  Come back if you change your mind...", function() {
             return;
-        });
-    }
-
-    function intro(){
-        addToInstructions('You were warned...', function() {
-            addToInstructions("^2500</br>I awoke. Dizzied and surrounded by dark. My head was spinning and there was a </br>sharp pain in the upper right side of my skull.  What am I doing here? \"Where is here?\" </br>I thought, First things first, orient myself. </br>I couldn't remember what had happened prior to my unconsciousness. I stood up and looked ahead. </br>There was a vague outline of a path that appeared to lead up to a house. I could barely make out an old mansion. </br>I looked behind myself and saw nothing but black. I heard what sounded like footsteps walking toward me from the rear.", function() {
-                firstchoice();
             });
         });
     }
 
+    function intro(){
+            addToInstructions("^2500</br>I awoke. Dizzied and surrounded by dark. My head was spinning and there was a </br>sharp pain in the upper right side of my skull.  What am I doing here? \"Where is here?\" </br>I thought, First things first, orient myself. </br>I couldn't remember what had happened prior to my unconsciousness. I stood up and looked ahead. </br>There was a vague outline of a path that appeared to lead up to a house. I could barely make out an old mansion. </br>I looked behind myself and saw nothing but black. I heard what sounded like footsteps walking toward me from the rear.", function() {
+                firstchoice();
+            });
+    }
+
     function firstchoice() {
-        addToInstructions("^2800<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
+        addToInstructions("^1000<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
 
         $("#yes1").one( "click", function(){
             msg = "I turned around and walked away from the house. A large figure walked toward me on the path. In its hand I saw what appeared to be an ax. \"Hello?\" I ventured. No response, just a quickened pace. Its arm lifted the weapon high into the air. I turned to run but I was too late. The ax brutally removed my head from its shoulders and this is the end of my story.";
@@ -868,26 +864,24 @@ function downstairsseven(){
     }
 
     function deadanddead(why, progress){
-        $('#yes1').hide().off();
-        $('#no2').hide().off();
+        // $('#yes1').hide().off();
+        // $('#no2').hide().off();
 
         addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> Please Hit yes or no");
 
         $("#button").one("click",function(){
             $('#yes1').show();
             $('#no2').show();
-
-            var choice = document.getElementById("myText").value.toLowerCase();
-            if(choice=="yes" || choice=="y"){
+        });
+            $("#yes1").one("click",function(){
                 addToInstructions("Back into hell you go...");
                 progress();
-            } else if(choice=="no" || choice=="n"){
-                addToInstructions("Smart decision. Get out while you still can.");
+            });
+            $("#no2").one("click",function(){
+                addToInstructions("Smart decision. Get out while you still can.", function() {
                 return;
-            } else {
-                var msg = "Please Hit yes or no:";
-                deadanddead(msg, progress);
-            }
-        });
-    }
+            });
+            });
+        }
+    
 });
