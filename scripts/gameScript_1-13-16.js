@@ -130,14 +130,15 @@ $(document).ready(function() {
                     deadanddead(msg,firstchoice);
                     });
             
-            $("#no2").one( "click", function(){
+        $("#no2").one( "click", function(){
                     $("#instructions2").replaceWith("<p id='instructions2'></p>");
                     $("#instructions3").replaceWith("<p id='instructions3'></p>");
                     $("#instructions4").replaceWith("<p id='instructions4'></p>");
                     msg = "I made my way up to the house. It appeared to be old and in need of repairs. Regardless, it held a certain beauty.</br>There looked to be about four stories, each floor big enough to contain a large family. Something gleamed to my left on the path. I looked over and saw a hatchet.";
-                    $("#instructions").html("<p>"+msg+"</p>");
+                    // $("#instructions").html("<p>"+msg+"</p>");
+                    $("#instructions4").typed({strings: ["<p>"+msg+"</p>"], typeSpeed: 0});
                     firstfirstchoice();
-                });
+                    });
 
         // $("#button").one("click",function(){
         //     var choice = document.getElementById("myText").value;
@@ -1343,6 +1344,7 @@ function deadanddead(why,progress){
                 var choice = document.getElementById("myText").value.toLowerCase();
                 if(choice=="yes" || choice=="y"){
                     $("#instructions").html("<br>Back into hell you go...");
+                    // might need debug this progress() method... or maybe it can just be deleted.  seems to be a mistake
                     progress();
                 }
                 else if(choice=="no" || choice=="n"){
