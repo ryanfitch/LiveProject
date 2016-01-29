@@ -31,7 +31,7 @@ $(document).ready(function() {
             $("#yes1").one( "click", function(){
                     namingnaming(name);
                 });
-            $("#no2"). "click", function(){
+            $("#no2").one( "click", function(){
                     naming();
                 });
         });
