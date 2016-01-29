@@ -1,12 +1,14 @@
 $(document).ready(function() {
     $(function() {
             start();
-            });
+
+        });
 
 
     function start(){
         $("#yes1").hide();
         $("#no2").hide();
+        $("#coffins").hide();
         $("#intro").append("TEXT-BASED HORROR!");
         $("input:text:visible:first").focus();
         naming();
@@ -14,17 +16,20 @@ $(document).ready(function() {
 
     function naming(){
         $("#textInput").show();
+        $("#yes1").hide();
+        $("#no2").hide();
+        $("#instructions").empty();
         addToInstructions("^750</br>What is my Name?");
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
-            if(name!="")
-            {
-            addToInstructions("Is " +name+" my correct name? </br>Hit yes or no.");
+            if ( name !== "" ) {
+                addToInstructions("Is " +name+" my correct name? </br>Hit yes or no.");
             }
-            else{
+            else {
                 $("#instructions2").append("<br>Please type in my name.");
                 naming();
             }
+
             $("#textInput").hide();
             $("#yes1").show();
             $("#no2").show();
@@ -51,6 +56,7 @@ $(document).ready(function() {
     }
 
     function play(){
+        $("#textInput").hide();
         addToInstructions("^4500Do you dare start this horrific journey?  Hit yes or no:");
 
         $("#yes1").one( "click", function(){
@@ -61,9 +67,11 @@ $(document).ready(function() {
         });
 
         $("#no2").one( "click", function(){
+            $("#textInput").hide();
             $("#story").empty();
             $("#instructions").empty();
             addToInstructions("Wise choice.  Come back if you change your mind...", function() {
+            $('#no').off();
             return;
             });
         });
@@ -76,6 +84,8 @@ $(document).ready(function() {
     }
 
     function firstchoice() {
+        $('#yes').off();
+        $('#no').off();
         addToInstructions("^1000<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
 
         $("#yes1").one( "click", function(){
@@ -183,7 +193,7 @@ $(document).ready(function() {
                 fifthfifthchoice();
             });
         });
-}
+    }
 
     function fifthfifthchoice() {
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HIDE UNDER THE TABLE<br>Option 2: HIDE IN THE CLOSET<br>Hit 1 or 2: ");
@@ -203,7 +213,7 @@ $(document).ready(function() {
             });
         });
         $("#no2").one("click",function() {
-            msg="I opened the door. Despite my attempts to be quiet, it creaked loudly. I heard shouting and heavy footsteps. The man with the shotgun appeared and before I could defend myself, he blew my head off with a hail of bullets. And this is the end of my story."
+            msg="I opened the door. Despite my attempts to be quiet, it creaked loudly. I heard shouting and heavy footsteps. The man with the shotgun appeared and before I could defend myself, he blew my head off with a hail of bullets. And this is the end of my story.";
             deadanddead(msg,sixthchoice);
         });
     }
@@ -422,7 +432,6 @@ $(document).ready(function() {
             });
     }
 
-
     function thirteenthreechoice() {
         addToInstructions("<br><br>We entered the door and what I saw shocked me. A brand-new, stainless steel labratory was in front of us. It was exceptionally bright and vast. I immediately saw a doctor operating on someone. There were two individuals in white surrounding him. Everyone was staring at Jessica and I. And they were smiling. The corners of their mouths were sewn upwards. The stitches held a permanent, forced smile on their cheeks. They also had blood on their hands and the front of their clothes.", function(){
             thirteenththirteenththirteenthchoice();
@@ -481,384 +490,405 @@ $(document).ready(function() {
                     msg="</br>I stood up, grabbed Jessica\'s hand and lifted her to a standing position. We walked to the door and opened it. It was a mistake. In front of us was a large conference table with about 30 people at it. They held an assortment of weapons. I mustered my words and began saying, \"Please don\'t kill-\" and this is the end of my story.";
                     deadanddead(msg,fifteenthchoice);
                 });
+        }
+
+    function sixteenthchoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CLIMB THE FENCE</br>Option 2: TAKE THE PATH TO THE DOOR</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    msg = "<p>I walked over the fence and gripped the bars. \"Are you sure that\'s a good idea?\" Jessica asked. She eyed the spikes at the top. \"I\'m a good climber.\" I replied. \"I\'ll figure something out.\" \"Okay,\" she said. \"But I can\'t climb it, so what happens when you get over?\" \"I said I\'d figure it out!\" I snapped back. I handed her my pistol and began making my way up the fence. The bars were slightly rusted, which helped my grip. I made it to the top, sweating and out of breath. I reached over the spikes and pulled. I slipped and fell forward. I heard Jessica yell and then felt the rusted spikes impale my throat and upper body. And this is the end of my story.</p>";
+                    deadanddead(msg, sixteenthchoice);
+                });
+        $("#no2").one("click",function() {
+                    addToInstructions('Jessica breathed a sigh of relief. \"Thank goodness you\'re not going to climb that fence. That would be a death wish!\" I chuckled. We made our way down the dark path, gravel crunching under our feet. I reached the door and turned the handle. It was locked.', function(){
+                        seventeenthchoice();
+                    });
+                });
+            }
+
+    function seventeenthchoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK FOR THE KEY</br>Option 2: KICK THE DOOR DOWN</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                addToInstructions("\"Jessica, help me find the key.\" I looked on the path. Jessica lifted the door mat and what do you know? There was a key. It was an old-fashioned, large fancy-looking key. \"You\'re welcome,\" she winked as she handed it to me. I tried it and it worked! The door clicked and opened. Immediately something jumped on top of me and knocked me on my back.", function(){
+                    seventeenthseventeenthchoice();
+                    });
+                });
+        $("#no2").one("click",function() {
+                    msg ="<p>\"I have always wanted to do this,\" I said to Jessica. She grinned. I lifted my leg and kicked the door. Bang! It cracked near the handle but didn''t give. I lifted my leg for a second blow and heard a noise behind us. The door we had entered from opened. I turned to see a crowd of people pouring out. \"They heard us!\" Jessica yelled. She held her hatchet up and I pulled out my pistol. We didn\'t stand a chance, we were outmanned and outgunned. The last thing I saw was a barrel of a shotgun and this is the end of my story.</p>";
+                    deadanddead(msg, seventeenthchoice);
+                });
+            }
+
+    function seventeenthseventeenthchoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CALL FOR HELP</br>Option 2: ATTACK WHATEVER WAS ON TOP OF ME</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I yelled for Jessica. She swung her hatchet, there was a shrill yelp and blood splattered across my face. I quickly wiped my eyes and stood to my feet, pistol at the ready. On the floor, there was a dead dog, half of its neck sliced through. It was a wolf-like dog, large and, by all appearances, hungry. \"Really?\" I asked. \"Crazy people and now a killer dog...\" I looked to Jessica, she was panting and her hatchet dripped. \"Thank you.\" She nodded in response. In the corner there was a set of television screens. \"I think it\'s a security system.\" I said to Jessica and myself.", function(){
+                        eighteenthchoice();
+                    });
+                });
+        $("#no2").one("click",function() {
+                    addToInstructions("I pushed my hands against the heavy attacker. Jessica swung her hatchet, there was a shrill yelp and blood splattered across my face. I quickly wiped my eyes and stood to my feet, pistol at the ready. On the floor, there was a dead dog, half of its neck sliced through. It was a wolf-like dog, large and, by all appearances, hungry. \"Really?\" I asked. \"Crazy people and now a killer dog...\" I looked to Jessica, she was panting and her hatchet dripped. \"Thank you.\" She nodded in response. In the corner there was a set of television screens. \"I think it\'s a security system.\" I said to Jessica and myself.", function(){
+                        eighteenthchoice();
+                    });
+                });
+        }
+
+    function eighteenthchoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TURN THE SCREENS ON?</br>Option 2: LEAVE THEM BE?</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I turned the security system screens on. There were eight screens. I could see some areas where we had been and a couple we had not. Suddenly there was a tall figure on one of the screens. He was coming up the path we had just walked on. He held a long butcher\'s knife in his right hand. I couldn\'t make out his face. \"Jessica!\" I hissed, \"Someone\'s coming.\"", function(){
+                        nineteenthchoice();
+                    });
+                });
+        $("#no2").one("click",function() {
+                    msg ="<p>I didn\'t turn on security camera screens. Jessica and I scanned the room. I searched a nearby bookcase. There were books on human anatomy and neurology. I picked up one entitled \"Brains and Minds\" and flipped through. There were diagrams of different section of the brains indicating where to cut to supposedly affect behavior. \"Jessica, you have to see -\" I turned my head and saw Jessica being held from behind by a tall man. How did I not hear him? He had a knife to her throat. I raised my weapon and while staring directly at me, the man ran the knife through the front of her neck. Jessica died. I took my ax and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
+                    deadanddead(msg, eighteenthchoice);
+                });
+        }
+
+    function nineteenthchoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HIDE</br>Option 2: PREPARE TO ATTACK</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("\"We need to hide, now!\" I hissed at Jessica. There was a stand-alone closet that had thin horizontal slats. I pulled Jessica inside and shut the doors just in time. The man entered the room. He immediately walked over to the screens and looked them over. He began walking around the room and appeared to be looking for us. He walked in front of our closet and looked at the doors. We held our breath. Can he see us?");
+                        twentychoice();
+                    });
+        $("#no2").one("click",function() {
+                    msg ="<p>\"Get your weapon ready,\" I told Jessica. I stood by the door readied. I heard a small noise and turned my head and saw Jessica being held from behind my a tall man. He had a knife to her throat. How did he get by us? How did we not see or hear him? I raised my weapon and while staring directly at me, the man ran the knife through the front of her neck. Jessica died. I took my ax and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
+                    deadanddead(msg, nineteenthchoice);
+                });
     }
 
-function sixteenthchoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CLIMB THE FENCE</br>Option 2: TAKE THE PATH TO THE DOOR</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                msg = "<p>I walked over the fence and gripped the bars. \"Are you sure that\'s a good idea?\" Jessica asked. She eyed the spikes at the top. \"I\'m a good climber.\" I replied. \"I\'ll figure something out.\" \"Okay,\" she said. \"But I can\'t climb it, so what happens when you get over?\" \"I said I\'d figure it out!\" I snapped back. I handed her my pistol and began making my way up the fence. The bars were slightly rusted, which helped my grip. I made it to the top, sweating and out of breath. I reached over the spikes and pulled. I slipped and fell forward. I heard Jessica yell and then felt the rusted spikes impale my throat and upper body. And this is the end of my story.</p>";
-                deadanddead(msg, sixteenthchoice);
-            });
-    $("#no2").one("click",function() {
-                addToInstructions('Jessica breathed a sigh of relief. \"Thank goodness you\'re not going to climb that fence. That would be a death wish!\" I chuckled. We made our way down the dark path, gravel crunching under our feet. I reached the door and turned the handle. It was locked.', function(){
-                    seventeenthchoice();
+    function twentychoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT IT OUT</br>Option 2: ATTACK</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("My heart raced. I hoped he wouldn't hear it pounding. After what was merely two seconds but seemed like an eternity he continued walking. He finished his circle of the room. He paused at the door he came in. Glanced back over toward our closet. And then he left the room. Jessica and I simultaneously breathed sighs of relief. We exited the closet.", function(){
+                        twentytwentychoice();
+                    });
                 });
+        $("#no2").one("click",function() {
+                    msg ="<p>I took my ax, smashed opened the closet doors and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
+                    deadanddead(msg, twentychoice);
+                });
+    }
+
+    function twentytwentychoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK AT SECURITY SCREENS AGAIN</br>Option 2: SEARCH THE ROOM</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I took a look at the security cameras again. Behind us, in the path we came from there was huddle of men. There were three of them and they appeared to be talking and pointing. The screens showed that the room ahead of us had no one in it but contained several coffins!", function(){
+                        twentyonechoice();
+                    });
+                });
+        $("#no2").one("click",function() {
+                    addToInstructions("I glanced around the room and saw nothing of interest. So I took a look at the security cameras again. Behind us, in the path we came from there was huddle of men. There were three of them and they appeared to be talking and pointing. The screens showed that the room ahead of us had no one in it but contained several coffins!", function(){
+                        twentyonechoice();
+                    });
+                });
+    }
+
+    function twentyonechoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: MOVE BACKWARD</br>Option 2: MOVE FORWARD</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    msg = "<p>I readied my gun, opened the door and opened fire on the three men. Bam! One down. Bam! Another down. The third one had made his way close to me and grabbed for the gun. There was a struggle. He was twice my size and overpowered me. Bam! A shot went off. I heard a noise. Jessica had fallen to the ground - blood rushing out of her head. And then... Bam! And this is the end of my story.</p>";
+                    deadanddead(msg, twentyonechoice);
+                });
+        $("#no2").one("click",function() {
+                    addToInstructions('Jessica and I opened the door and made our way into the coffined room. It was rancid. The floor was concrete and the walls and ceiling were stone. Each coffin was numbered with gold lettering; 1-17. Jessica eyed the room with her hand on her face. On one of the walls I saw what looked to be hand-smeared blood. The blood messily spelled out three sets of numbers: "3" "17" "5"...', function(){
+                        twentyoneonechoice();
+                    });
+                });
+    }
+
+    function twentyoneonechoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE CHECKING THE ROOM</br>Option 2: OPEN A COFFIN</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions('I looked over the walls and it looked like we were in a dead end (no pun intended). The only door in the room was the one we entered through. Jessica ran her hand against the wall. "It\'s damp," she said.', function(){
+                        twentytwochoice();
+                    });
+                });
+        $("#no2").one("click",function() {
+                    coffin();
+                });
+    }
+
+    function twentytwochoice(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LEAVE THROUGH THE DOOR I ENTERED</br>Option 2: OPEN A COFFIN</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    msg = "<p>Because we couldn't find a way, Jessica and I left the room the way we came in. And it seemed the three men we had seen earlier on the security displays had caught up with us. Jessica jumped in front of me swinging her hatchet. She didn't stand a chance. The last thing I saw was the barrel of a gun. And this is the end of my story.</p>";
+                    deadanddead(msg, twentytwochoice);
+                    $('#no').off();
+                });
+        $("#no2").one("click",function() {
+                    coffin();
+                    $('#yes1').off();
+                });
+    }
+
+    function coffin(){
+        addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...", function(){
+            coffinone();
+        });
+    }
+
+    function coffinone(){
+        $("#yes1").hide();
+        $("#no2").hide();
+        $("textInput").show();
+        addToInstructions("<br>Which coffin did I open first?</br>choose a numeral from 1-17");
+        $("#button").one("click",function(){
+            var choice = document.getElementById("myText").value;
+            if(choice <= 2 || choice >= 4){
+                msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
+            deadanddead(msg, coffinone);
+                }
+            else if (choice > 17) {
+                addToInstructions("</br></br>Please enter a number between 1-17", function (){
+                    coffinone();
+                });
+            }
+            else if (choice == 3) {
+                addToInstructions("</br>I reached down and opened the lid. There was a note. On it was scrawled \"first step on your path downward.\"", function(){
+                    coffintwo();
+                    });
+            }
+            else {
+                addToInstructions("</br></br>Please enter a number between 1-17", function (){
+                    coffinone();
+                    });
+                }
             });
         }
 
-function seventeenthchoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK FOR THE KEY</br>Option 2: KICK THE DOOR DOWN</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-            addToInstructions("\"Jessica, help me find the key.\" I looked on the path. Jessica lifted the door mat and what do you know? There was a key. It was an old-fashioned, large fancy-looking key. \"You\'re welcome,\" she winked as she handed it to me. I tried it and it worked! The door clicked and opened. Immediately something jumped on top of me and knocked me on my back.", function(){
-                seventeenthseventeenthchoice();
+    function coffintwo(){
+        $("#yes1").hide();
+        $("#no2").hide();
+        $("textInput").show();
+        addToInstructions("<br>Which coffin did I open second?</br>choose a numeral from 1-17");
+        $("#button").one("click",function(){
+            var choice = document.getElementById("myText").value;
+            if(choice != 3 && choice != 17){
+                msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
+            deadanddead(msg, coffintwo);
+            }
+            else if(choice == 17){
+                addToInstructions("</br></br>I reached down and opened the lid. There was another note. \"One more motion toward the depths below.\"", function () {
+                    coffinthree();
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ="<p>\"I have always wanted to do this,\" I said to Jessica. She grinned. I lifted my leg and kicked the door. Bang! It cracked near the handle but didn''t give. I lifted my leg for a second blow and heard a noise behind us. The door we had entered from opened. I turned to see a crowd of people pouring out. \"They heard us!\" Jessica yelled. She held her hatchet up and I pulled out my pistol. We didn\'t stand a chance, we were outmanned and outgunned. The last thing I saw was a barrel of a shotgun and this is the end of my story.</p>";
-                deadanddead(msg, seventeenthchoice);
+            }
+            else if (choice == 3) {
+                addToInstructions("</br>I already opened coffin number 3...", function () {
+                    coffintwo();
+                });
+            }
+            else if(choice > 17){
+                addToInstructions("</br>Please enter a number between 1-17", function () {
+                    coffintwo();
+                });
+            }
+            else{
+                addToInstructions("</br>Please enter a number between 1-17", function () {
+                    coffintwo();
+                });
+                 }
+                });
+            }
+
+    function coffinthree(){
+        $("#yes1").hide();
+        $("#no2").hide();
+        $("textInput").show();
+        addToInstructions("</br>Which coffin did I open third?</br>choose a numeral from 1-17");
+        $("#button").one("click",function(){
+        var choice = document.getElementById("myText").value;
+        if(choice !=3 && choice !=17 && choice !=5){
+            msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
+        deadanddead(msg, coffinthree);
+        }
+        else if(choice==5){
+            addToInstructions("</br>I opened the coffin with the gold letter 5 on top. The floor began to shake. Dust fell from the walls and ceiling. Step by step, a rough staircase began to form. Jessica grabbed me and pulled me back. It was extremely loud and I glanced at the door, convinced that we would be heard.", function () {
+                downstairsone();
             });
         }
-
-function seventeenthseventeenthchoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CALL FOR HELP</br>Option 2: ATTACK WHATEVER WAS ON TOP OF ME</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I yelled for Jessica. She swung her hatchet, there was a shrill yelp and blood splattered across my face. I quickly wiped my eyes and stood to my feet, pistol at the ready. On the floor, there was a dead dog, half of its neck sliced through. It was a wolf-like dog, large and, by all appearances, hungry. \"Really?\" I asked. \"Crazy people and now a killer dog...\" I looked to Jessica, she was panting and her hatchet dripped. \"Thank you.\" She nodded in response. In the corner there was a set of television screens. \"I think it\'s a security system.\" I said to Jessica and myself.", function(){
-                    eighteenthchoice();
-                });
+        else if(choice==17 || choice==3){
+            addToInstructions("</br>I already opened coffin number "+choice+"...", function () {
+                coffinthree();
             });
-    $("#no2").one("click",function() {
-                addToInstructions("I pushed my hands against the heavy attacker. Jessica swung her hatchet, there was a shrill yelp and blood splattered across my face. I quickly wiped my eyes and stood to my feet, pistol at the ready. On the floor, there was a dead dog, half of its neck sliced through. It was a wolf-like dog, large and, by all appearances, hungry. \"Really?\" I asked. \"Crazy people and now a killer dog...\" I looked to Jessica, she was panting and her hatchet dripped. \"Thank you.\" She nodded in response. In the corner there was a set of television screens. \"I think it\'s a security system.\" I said to Jessica and myself.", function(){
-                    eighteenthchoice();
-                });
+        }
+        else if(choice>17){
+            addToInstructions("Please enter a number between 1-17.", function () {
+                coffinthree();
             });
+        }
+        else{
+            addToInstructions("Please enter a number between 1-17.", function () {
+                coffinthree();
+                });
+            }
+        });
     }
 
-function eighteenthchoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TURN THE SCREENS ON?</br>Option 2: LEAVE THEM BE?</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I turned the security system screens on. There were eight screens. I could see some areas where we had been and a couple we had not. Suddenly there was a tall figure on one of the screens. He was coming up the path we had just walked on. He held a long butcher\'s knife in his right hand. I couldn\'t make out his face. \"Jessica!\" I hissed, \"Someone\'s coming.\"", function(){
-                    nineteenthchoice();
+    function downstairsone(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: BLOCK THE DOOR WITH A COFFIN</br>Option 2: HIDE IN A COFFIN</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions('We pushed a coffin against the door. It was very heavy and I broke a sweat. The stairs finished moving into place and there was a pounding at the door. I really had no choice. We headed down the stairs. The stairs were made of stone. There was no light on the staircase but I could make out a dim glow at the bottom. The pounding above continued but the door was thick and the coffin heavy. I looked at Jessica. She was dirty and sweaty. I realized that I must look like a mess. But in times like these, appearance is the least concern. "Well we can\'t seem to get a moment\'s peace and there are men wanting to kill us who are slamming away above," Jessica said. "I hate this place. And at the risk of sounding trite, I just want to go home. To top it all off, I hate the dark." I grunted.', function(){
+                        downstairsoneone();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ="<p>I didn\'t turn on security camera screens. Jessica and I scanned the room. I searched a nearby bookcase. There were books on human anatomy and neurology. I picked up one entitled \"Brains and Minds\" and flipped through. There were diagrams of different section of the brains indicating where to cut to supposedly affect behavior. \"Jessica, you have to see -\" I turned my head and saw Jessica being held from behind by a tall man. How did I not hear him? He had a knife to her throat. I raised my weapon and while staring directly at me, the man ran the knife through the front of her neck. Jessica died. I took my ax and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
-                deadanddead(msg, eighteenthchoice);
-            });
+        $("#no2").one("click",function() {
+                    msg ="<p>Jessica and I hid in separate coffins. The stairs finish moving into place just as three large men burst in the room. We were easily found and I hit one with an ax. The second one began strangling Jessica. The last man had opened fire at us. I don't know what happened to Jessica but this is the end of my story.</p>";
+                    deadanddead(msg, downstairsone);
+                });
     }
 
-function nineteenthchoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HIDE</br>Option 2: PREPARE TO ATTACK</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("\"We need to hide, now!\" I hissed at Jessica. There was a stand-alone closet that had thin horizontal slats. I pulled Jessica inside and shut the doors just in time. The man entered the room. He immediately walked over to the screens and looked them over. He began walking around the room and appeared to be looking for us. He walked in front of our closet and looked at the doors. We held our breath. Can he see us?");
-                    twentychoice();
+    function downstairsoneone(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE DOWN THE STAIRS</br>Option 2: SIT DOWN</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions('I arrived at the bottom of the stairs. In front of me was a disgusting sight. There was a man with a bloodied butcher\'s frock, a dustmask and a cleaver. On the table next to him was a gutted corpse.', function(){
+                        downstairstwo();
+                    });
                 });
-    $("#no2").one("click",function() {
-                msg ="<p>\"Get your weapon ready,\" I told Jessica. I stood by the door readied. I heard a small noise and turned my head and saw Jessica being held from behind my a tall man. He had a knife to her throat. How did he get by us? How did we not see or hear him? I raised my weapon and while staring directly at me, the man ran the knife through the front of her neck. Jessica died. I took my ax and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
-                deadanddead(msg, nineteenthchoice);
-            });
-}
-
-function twentychoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT IT OUT</br>Option 2: ATTACK</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("My heart raced. I hoped he wouldn't hear it pounding. After what was merely two seconds but seemed like an eternity he continued walking. He finished his circle of the room. He paused at the door he came in. Glanced back over toward our closet. And then he left the room. Jessica and I simultaneously breathed sighs of relief. We exited the closet.", function(){
-                    twentytwentychoice();
+        $("#no2").one("click",function() {
+                    addToInstructions('I was tired. I sat down on the cold, hard stairs. Jessica immediately pulled at me, "What the hell are you doing?" She asked, "There are people trying to get at us!" I stood up and made my way down the stairs. We arrived at the bottom of the stairs. In front of me was a disgusting sight. There was a man with a bloodied butcher\'s frock, a dustmask and a cleaver. On the table next to him was a gutted corpse.', function(){
+                        downstairstwo();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ="<p>I took my ax, smashed opened the closet doors and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
-                deadanddead(msg, twentychoice);
-            });
-}
-
-function twentytwentychoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK AT SECURITY SCREENS AGAIN</br>Option 2: SEARCH THE ROOM</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I took a look at the security cameras again. Behind us, in the path we came from there was huddle of men. There were three of them and they appeared to be talking and pointing. The screens showed that the room ahead of us had no one in it but contained several coffins!", function(){
-                    twentyonechoice();
-                });
-            });
-    $("#no2").one("click",function() {
-                addToInstructions("I glanced around the room and saw nothing of interest. So I took a look at the security cameras again. Behind us, in the path we came from there was huddle of men. There were three of them and they appeared to be talking and pointing. The screens showed that the room ahead of us had no one in it but contained several coffins!", function(){
-                    twentyonechoice();
-                });
-            });
-}
-
-function twentyonechoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: MOVE BACKWARD</br>Option 2: MOVE FORWARD</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                msg = "<p>I readied my gun, opened the door and opened fire on the three men. Bam! One down. Bam! Another down. The third one had made his way close to me and grabbed for the gun. There was a struggle. He was twice my size and overpowered me. Bam! A shot went off. I heard a noise. Jessica had fallen to the ground - blood rushing out of her head. And then... Bam! And this is the end of my story.</p>";
-                deadanddead(msg, twentyonechoice);
-            });
-    $("#no2").one("click",function() {
-                addToInstructions('Jessica and I opened the door and made our way into the coffined room. It was rancid. The floor was concrete and the walls and ceiling were stone. Each coffin was numbered with gold lettering; 1-17. Jessica eyed the room with her hand on her face. On one of the walls I saw what looked to be hand-smeared blood. The blood messily spelled out three sets of numbers: "3" "17" "5"...', function(){
-                    twentyoneonechoice();
-                });
-            });
-}
-
-function twentyoneonechoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE CHECKING THE ROOM</br>Option 2: OPEN A COFFIN</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions('I looked over the walls and it looked like we were in a dead end (no pun intended). The only door in the room was the one we entered through. Jessica ran her hand against the wall. "It\'s damp," she said.', function(){
-                    twentytwochoice();
-                });
-            });
-    $("#no2").one("click",function() {
-                coffin();
-            });
-}
-
-function twentytwochoice(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LEAVE THROUGH THE DOOR I ENTERED</br>Option 2: OPEN A COFFIN</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                msg = "<p>Because we couldn't find a way, Jessica and I left the room the way we came in. And it seemed the three men we had seen earlier on the security displays had caught up with us. Jessica jumped in front of me swinging her hatchet. She didn't stand a chance. The last thing I saw was the barrel of a gun. And this is the end of my story.</p>";
-                deadanddead(msg, twentytwochoice);
-            });
-    $("#no2").one("click",function() {
-                coffin();
-            });
-}
-
-function coffin(){
-    addToInstructions("</br>I decided to open one of the caskets. Hopefully there was nothing inside...");
-    coffinone();
-}
-
-// function coffinone(){
-//     $("#instructions").append("<br>Which coffin did I open first?</br>choose a numeral from 1-17");
-//     $("#button").one("click",function(){
-//         var choice = document.getElementById("myText").value;
-//         if(choice <= 2 || choice >= 4){
-//             msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
-//         deadanddead(msg, coffinone);
-//         }
-//         else if(choice > 17){
-//             $("#instructions").append("</br></br>Please enter a number between 1-17.");
-//             coffinone();
-//         }
-//         else if(choice == 3){
-//             $("#instructions").html("</br>I reached down and opened the lid. There was a note. On it was scrawled \"first step on your path downward.\"");
-//             coffintwo();
-//         }
-//         else{
-//             $("#instructions").append("</br></br>Please enter a number between 1-17");
-//             coffinone();
-//         })
-//     }
-// }
-
-function coffintwo(){
-    $("#instructions").append("<br>Which coffin did I open second?</br>choose a numeral from 1-17");
-    $("#button").one("click",function(){
-    var choice = document.getElementById("myText").value;
-    if(choice != 3 && choice != 17){
-        msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
-    deadanddead(msg, coffintwo);
-    }
-    else if(choice == 17){
-        $("#instructions").html("</br></br>I reached down and opened the lid. There was another note. \"One more motion toward the depths below.\"");
-        coffinthree();
-    }
-    else if(choice == 3){
-        $("#instructions").append("</br>I already opened coffin number 3...");
-        coffintwo();
-    }
-    else if(choice > 17){
-        $("#instructions").append("</br>Please enter a number between 1-17");
-        coffintwo();
-    }
-    else{
-
-        $("#instructions").append("</br>Please enter a number between 1-17");
-        coffintwo();
-    }
-})
-}
-
-function coffinthree(){
-    $("#instructions").append("</br>Which coffin did I open third?</br>choose a numeral from 1-17");
-    $("#button").one("click",function(){
-    var choice = document.getElementById("myText").value;
-    if(choice !=3 && choice !=17 && choice !=5){
-        msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
-    deadanddead(msg, coffinthree);
-    }
-    else if(choice==5){
-        $("#instructions").html("</br>I opened the coffin with the gold letter 5 on top. The floor began to shake. Dust fell from the walls and ceiling. Step by step, a rough staircase began to form. Jessica grabbed me and pulled me back. It was extremely loud and I glanced at the door, convinced that we would be heard.");
-        downstairsone();
-    }
-    else if(choice==17 || choice==3){
-        $("#instructions").append("</br>I already opened coffin number "+choice+"...");
-        coffinthree();
-    }
-    else if(choice>17){
-        $("#instructions").append("Please enter a number between 1-17.");
-        coffinthree();
-    }
-    else{
-        $("#instructions").append("Please enter a number between 1-17.");
-        coffinthree();
     }
 
-    });
-}
+    function downstairstwo(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: TALK</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("Without delay, I raised my pistol and shot him in between the eyes. He collapsed several feet backward and landed flat on his back. Suddenly another person entered the room. He had a long knife.", function(){
+                        downstairsthree();
+                    });
+                });
+        $("#no2").one("click",function() {
+                    msg ='<p>"What is happen-" I started. The man moved quickly and his cleaver struck me in the side of the head. The first blow knocked me down. I attempted to raise my weapon but my arm wouldn\'t move. He struck me again and this is the end of my story.</p>';
+                    deadanddead(msg, downstairstwo);
+                });
+    }
 
-function downstairsone(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: BLOCK THE DOOR WITH A COFFIN</br>Option 2: HIDE IN A COFFIN</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions('We pushed a coffin against the door. It was very heavy and I broke a sweat. The stairs finished moving into place and there was a pounding at the door. I really had no choice. We headed down the stairs. The stairs were made of stone. There was no light on the staircase but I could make out a dim glow at the bottom. The pounding above continued but the door was thick and the coffin heavy. I looked at Jessica. She was dirty and sweaty. I realized that I must look like a mess. But in times like these, appearance is the least concern. "Well we can\'t seem to get a moment\'s peace and there are men wanting to kill us who are slamming away above," Jessica said. "I hate this place. And at the risk of sounding trite, I just want to go home. To top it all off, I hate the dark." I grunted.', function(){
-                    downstairsoneone();
+    function downstairsthree(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SHOOT</br>Option 2: ORDER HIM TO DROP KNIFE</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    msg="<p>I pulled the trigger. Bam! He dodged to the left and I missed! I attempted another shot but he was upon me. His knife slid deep into my right eye. The pain was deathly. I saw red and this is the end of my story.</p>";
+                    deadanddead(msg,downstairsthree);
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ="<p>Jessica and I hid in separate coffins. The stairs finish moving into place just as three large men burst in the room. We were easily found and I hit one with an ax. The second one began strangling Jessica. The last man had opened fire at us. I don't know what happened to Jessica but this is the end of my story.</p>";
-                deadanddead(msg, downstairsone);
-            });
-}
+        $("#no2").one("click",function() {
+                    addToInstructions("</br>I yelled, \"Drop the knife, I have a gun!\" He glanced at me and set the knife down. He then said, \"Where the moon shines exists the deepest lord of nightly experiences. At times, I eat all but glory.\" He fell on the floor and rocked back and forth. Rope lay nearby. Jessica clicked the flashlight off and bravely picked up his knife.'", function(){
+                        downstairsfour();
+                    });
+                });
+    }
 
-function downstairsoneone(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE DOWN THE STAIRS</br>Option 2: SIT DOWN</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions('I arrived at the bottom of the stairs. In front of me was a disgusting sight. There was a man with a bloodied butcher\'s frock, a dustmask and a cleaver. On the table next to him was a gutted corpse.', function(){
-                    downstairstwo();
+    function downstairsfour(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TIE HIM UP</br>Option 2: WALK PAST HIM</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I grabbed the rope. I had learned knots as a child. I couldn't recall all the names but I remembered how to tie the knots I felt were useful. I grabbed the man's arm and he struggled. He took a swing at me and I brought the butt of my pistol on the back of his head. He yelped but continued struggling. I hit him again on the top of his head and knocked him unconscious. I tied him to the leg of a nearby table that was secured to the floor, arms behind his back.", function(){
+                        downstairsfourfour();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                addToInstructions('I was tired. I sat down on the cold, hard stairs. Jessica immediately pulled at me, "What the hell are you doing?" She asked, "There are people trying to get at us!" I stood up and made my way down the stairs. We arrived at the bottom of the stairs. In front of me was a disgusting sight. There was a man with a bloodied butcher\'s frock, a dustmask and a cleaver. On the table next to him was a gutted corpse.', function(){
-                    downstairstwo();
+        $("#no2").one("click",function() {
+                    msg="<p>I figured he was insane and continued past him. I heard a rapid shuffling and felt a sharp sting in the back of my neck.The stinging became an unbearable pain. I coughed blood. The man had stabbed me in the back of the neck. And this is the end of my story.</p>";
+                    deadanddead(msg,downstairsfour);
                 });
-            });
-}
+    }
 
-function downstairstwo(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: TALK</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("Without delay, I raised my pistol and shot him in between the eyes. He collapsed several feet backward and landed flat on his back. Suddenly another person entered the room. He had a long knife.", function(){
-                    downstairsthree();
+    function downstairsfourfour(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE ROOM</br>Option 2: LOOK FOR A WAY OUT</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I finally had a moment to scan the room. The butcher lay in a pool of mixed blood on the floor. There were two doors. One on the left and another further to my right.", function(){
+                        downstairsfourfourfour();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ='<p>"What is happen-" I started. The man moved quickly and his cleaver struck me in the side of the head. The first blow knocked me down. I attempted to raise my weapon but my arm wouldn\'t move. He struck me again and this is the end of my story.</p>';
-                deadanddead(msg, downstairstwo);
-            });
-}
+        $("#no2").one("click",function() {
+                    addToInstructions("I looked around the room. The butcher lay in a pool of mixed blood on the floor. There were two doors. One on the left and another further to my right.", function(){
+                        downstairsfourfourfour();
+                    });
+                });
+    }
 
-function downstairsthree(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SHOOT</br>Option 2: ORDER HIM TO DROP KNIFE</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                msg="<p>I pulled the trigger. Bam! He dodged to the left and I missed! I attempted another shot but he was upon me. His knife slid deep into my right eye. The pain was deathly. I saw red and this is the end of my story.</p>";
-                deadanddead(msg,downstairsthree);
-            });
-    $("#no2").one("click",function() {
-                addToInstructions("</br>I yelled, \"Drop the knife, I have a gun!\" He glanced at me and set the knife down. He then said, \"Where the moon shines exists the deepest lord of nightly experiences. At times, I eat all but glory.\" He fell on the floor and rocked back and forth. Rope lay nearby. Jessica clicked the flashlight off and bravely picked up his knife.'", function(){
-                    downstairsfour();
+    function downstairsfourfourfour(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR TO THE LEFT</br>Option 2: OPEN THE DOOR TO THE RIGHT</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    $("#instructions").html("I opened the door on the left. It was a closet. Inside was some clean clothing. I was filthy and decided to change my clothes. Jessica turned away. The fresh attire was nice. Jessica and I traded places and she changed into a clean shirt. Left with no other options besides going backwards, we headed out the door on the right.", function(){
+                        rightdoor();
+                    });
                 });
-            });
-}
-
-function downstairsfour(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TIE HIM UP</br>Option 2: WALK PAST HIM</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I grabbed the rope. I had learned knots as a child. I couldn't recall all the names but I remembered how to tie the knots I felt were useful. I grabbed the man's arm and he struggled. He took a swing at me and I brought the butt of my pistol on the back of his head. He yelped but continued struggling. I hit him again on the top of his head and knocked him unconscious. I tied him to the leg of a nearby table that was secured to the floor, arms behind his back.", function(){
-                    downstairsfourfour();
-                });
-            });
-    $("#no2").one("click",function() {
-                msg="<p>I figured he was insane and continued past him. I heard a rapid shuffling and felt a sharp sting in the back of my neck.The stinging became an unbearable pain. I coughed blood. The man had stabbed me in the back of the neck. And this is the end of my story.</p>";
-                deadanddead(msg,downstairsfour);
-            });
-}
-
-function downstairsfourfour(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE ROOM</br>Option 2: LOOK FOR A WAY OUT</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I finally had a moment to scan the room. The butcher lay in a pool of mixed blood on the floor. There were two doors. One on the left and another further to my right.", function(){
-                    downstairsfourfourfour();
-                });
-            });
-    $("#no2").one("click",function() {
-                addToInstructions("I looked around the room. The butcher lay in a pool of mixed blood on the floor. There were two doors. One on the left and another further to my right.", function(){
-                    downstairsfourfourfour();
-                });
-            });
-}
-
-function downstairsfourfourfour(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR TO THE LEFT</br>Option 2: OPEN THE DOOR TO THE RIGHT</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                $("#instructions").html("I opened the door on the left. It was a closet. Inside was some clean clothing. I was filthy and decided to change my clothes. Jessica turned away. The fresh attire was nice. Jessica and I traded places and she changed into a clean shirt. Left with no other options besides going backwards, we headed out the door on the right.", function(){
+        $("#no2").one("click",function() {
                     rightdoor();
                 });
-            });
-    $("#no2").one("click",function() {
-                rightdoor();
-            });
-}
+    }
 
-function rightdoor(){
-    addToInstructions("I opened the right door and in front of me was pitch black. I asked Jessica to pass me the flashlight and I clicked it back on. And of course, in keeping with our terrible experience thus far the flashlight didn''t turn on. \"Crap, the batteries are dead.\" I said. Suddenly, on the stairs behind us we heard footsteps pounding. Jessica grabbed my arm.", function(){
-        downstairsfive();
-    });
-}
+    function rightdoor(){
+        addToInstructions("I opened the right door and in front of me was pitch black. I asked Jessica to pass me the flashlight and I clicked it back on. And of course, in keeping with our terrible experience thus far the flashlight didn''t turn on. \"Crap, the batteries are dead.\" I said. Suddenly, on the stairs behind us we heard footsteps pounding. Jessica grabbed my arm.", function(){
+            downstairsfive();
+        });
+    }
 
-function downstairsfive(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT FOR THEM TO ARRIVE AND FIGHT</br>Option 2: HEAD INTO THE DARKNESS</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                msg = "<p>I readied my pistol, aiming it toward the door. A man appeared at the bottom of the stairs. His face was filthy and he held a large ax in either hand. BANG! I shot him in the arm. He dropped one ax. Behind him several more large, armed, men arrived in the room. Jessica impaled one of them with her knife. We were no match for them. The last thing I saw was gleaming steel and this is the end of my story.</p>";
-                deadanddead(msg, downstairsfive);
-            });
-    $("#no2").one("click",function() {
-                addToInstructions('I shut the door behind us. "Hold my hand so we aren\'t separated," I told Jessica. I felt the wall. It was cold and wet. Some sort of a slimy masonry. We slowly made our way around the room. I could see nothing. The only sound was our footsteps and breathing. My hand touched something sharp. Whatever it was that I touched, I had knocked it over. I moved back quickly and it clattered noisily across the floor. The sound must have awoke something because I immediately heard a low growl. I clutched my weapons and felt Jessica clench. The growling grew closer.', function(){
-                    downstairsfivefive();
+    function downstairsfive(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT FOR THEM TO ARRIVE AND FIGHT</br>Option 2: HEAD INTO THE DARKNESS</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    msg = "<p>I readied my pistol, aiming it toward the door. A man appeared at the bottom of the stairs. His face was filthy and he held a large ax in either hand. BANG! I shot him in the arm. He dropped one ax. Behind him several more large, armed, men arrived in the room. Jessica impaled one of them with her knife. We were no match for them. The last thing I saw was gleaming steel and this is the end of my story.</p>";
+                    deadanddead(msg, downstairsfive);
                 });
-            });
-}
+        $("#no2").one("click",function() {
+                    addToInstructions('I shut the door behind us. "Hold my hand so we aren\'t separated," I told Jessica. I felt the wall. It was cold and wet. Some sort of a slimy masonry. We slowly made our way around the room. I could see nothing. The only sound was our footsteps and breathing. My hand touched something sharp. Whatever it was that I touched, I had knocked it over. I moved back quickly and it clattered noisily across the floor. The sound must have awoke something because I immediately heard a low growl. I clutched my weapons and felt Jessica clench. The growling grew closer.', function(){
+                        downstairsfivefive();
+                    });
+                });
+    }
 
-function downstairsfivefive(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SWING MY AX</br>Option 2: STAY STILL</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I swung my ax into the darkness. Nothing. Jessica struck out with her knife. A shriek! She had cut someone or something. Then a loud noise from the door behind us. Light shone in the room. Two men with weapons entered. Jessica had stabbed a beast of some sort, barely hurting it. It was large, the size of a small bear and had matted fur. It was like no animal I have ever seen.", function(){
-                    downstairssix();
+    function downstairsfivefive(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SWING MY AX</br>Option 2: STAY STILL</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I swung my ax into the darkness. Nothing. Jessica struck out with her knife. A shriek! She had cut someone or something. Then a loud noise from the door behind us. Light shone in the room. Two men with weapons entered. Jessica had stabbed a beast of some sort, barely hurting it. It was large, the size of a small bear and had matted fur. It was like no animal I have ever seen.", function(){
+                        downstairssix();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                addToInstructions("I stood still. Then Jessica struck out with her knife. A shriek! She had cut someone or something. Then a loud noise from the door behind us. Light shone in the room. Two men with weapons entered. Jessica had stabbed a beast of some sort, barely hurting it. It was large, the size of a small bear and had matted fur. It was like no animal I have ever seen.", function(){
-                    downstairssix();
+        $("#no2").one("click",function() {
+                    addToInstructions("I stood still. Then Jessica struck out with her knife. A shriek! She had cut someone or something. Then a loud noise from the door behind us. Light shone in the room. Two men with weapons entered. Jessica had stabbed a beast of some sort, barely hurting it. It was large, the size of a small bear and had matted fur. It was like no animal I have ever seen.", function(){
+                        downstairssix();
+                    });
                 });
-            });
-}
+    }
 
-function downstairssix(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK THE MEN</br>Option 2: ATTACK THE BEAST</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions("I shot at one of the men and missed. One of the men yelled and pointed at me. The beast then turned to the men and charged. I grabbed Jessica and made our way to the nearest door. I pulled her out of the room. Shut the door behind us and locked it. I could hear screams from where we had just left. I turned around and found us in a hallway. It was long and there appeared to be only one door. A red door.", function(){
-                    downstairssixsix();
+    function downstairssix(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK THE MEN</br>Option 2: ATTACK THE BEAST</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions("I shot at one of the men and missed. One of the men yelled and pointed at me. The beast then turned to the men and charged. I grabbed Jessica and made our way to the nearest door. I pulled her out of the room. Shut the door behind us and locked it. I could hear screams from where we had just left. I turned around and found us in a hallway. It was long and there appeared to be only one door. A red door.", function(){
+                        downstairssixsix();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ='<p>I shot at the beast with my gun. It seemed to barely affect it. It charged at me. I looked over to see the men attacking Jessica. I tried to stab the beast but it easily overpowered me. I died knowing how it feels to be eaten alive. And this is the end of my story.</p>';
-                deadanddead(msg, downstairssix);
-            });
-}
+        $("#no2").one("click",function() {
+                    msg ='<p>I shot at the beast with my gun. It seemed to barely affect it. It charged at me. I looked over to see the men attacking Jessica. I tried to stab the beast but it easily overpowered me. I died knowing how it feels to be eaten alive. And this is the end of my story.</p>';
+                    deadanddead(msg, downstairssix);
+                });
+    }
 
-function downstairssixsix(){
-    addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE HALLWAY</br>Option 2: GO THROUGH THE DOOR</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                $("#instructions").html('"Let\'s look around," I told Jessica. I scanned the walls, floor and ceiling. They were barren. No doors. No windows. Just a long, undecorated hallway. "I can\'t find anything," Jessica said. So, we headed toward the door.<p>We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.</p>', function(){
-                    downstairsseven();
+    function downstairssixsix(){
+        addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE HALLWAY</br>Option 2: GO THROUGH THE DOOR</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    $("#instructions").html('"Let\'s look around," I told Jessica. I scanned the walls, floor and ceiling. They were barren. No doors. No windows. Just a long, undecorated hallway. "I can\'t find anything," Jessica said. So, we headed toward the door.<p>We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.</p>', function(){
+                        downstairsseven();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                addToInstructions('We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.', function(){
-                    downstairsseven();
+        $("#no2").one("click",function() {
+                    addToInstructions('We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.', function(){
+                        downstairsseven();
+                    });
                 });
-            });
-}
+    }
 
-function downstairsseven(){
-    addToInstructions("<br>WHAT DID I DO?</br>Option 1: SHOOT THE MAN</br>Option 2: RUN FOR THE FENCE</br>Hit 1 or 2:");
-    $("#yes1").one("click",function(){
-                addToInstructions('I shot the man in the face. He died instantly. I knew more would be coming. We ran over to the fence and I kicked at the planks. They were very solid. Jessica did the same. "I found a loose one!" She yelled. We both took turns at kicking it in. The boards shattered and there was enough room for one of us to make it through. Three more men entered the yard.', function(){
-                    endone();
+    function downstairsseven(){
+        addToInstructions("<br>WHAT DID I DO?</br>Option 1: SHOOT THE MAN</br>Option 2: RUN FOR THE FENCE</br>Hit 1 or 2:");
+        $("#yes1").one("click",function(){
+                    addToInstructions('I shot the man in the face. He died instantly. I knew more would be coming. We ran over to the fence and I kicked at the planks. They were very solid. Jessica did the same. "I found a loose one!" She yelled. We both took turns at kicking it in. The boards shattered and there was enough room for one of us to make it through. Three more men entered the yard.', function(){
+                        endone();
+                    });
                 });
-            });
-    $("#no2").one("click",function() {
-                msg ='<p>We ran for the fence. Behind us the man aimed his rifle. I was hoping that due to his obviously deranged mental state, that he\'d be a poor shot. I was wrong. I heard a crack just as a bullet blew through the back of my head. And this is the end of my story.</p>';
-                deadanddead(msg, downstairsseven);
-            });
-}
+        $("#no2").one("click",function() {
+                    msg ='<p>We ran for the fence. Behind us the man aimed his rifle. I was hoping that due to his obviously deranged mental state, that he\'d be a poor shot. I was wrong. I heard a crack just as a bullet blew through the back of my head. And this is the end of my story.</p>';
+                    deadanddead(msg, downstairsseven);
+                });
+    }
 
     function endone(){
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: GO THROUGH THE FENCE FIRST</br>Option 2: LET JESSICA GO THROUGH FIRST</br>Hit 1 or 2:");
@@ -903,21 +933,19 @@ function downstairsseven(){
     }
 
     function finaltwo() {
-        addToInstructions("Thanks for playing!");
-        exit();
+        addToInstructions("Thanks for playing!", function(){
+            exit();
+        });
     }
 
     function deadanddead(why, progress){
         $('#yes1').off();
         $('#no2').off();
         $('#textInput').hide();
+        $('#yes1').show();
+        $('#no2').show();
 
         addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> Please Hit yes or no");
-
-        $("#button").one("click",function(){
-            $('#yes1').show();
-            $('#no2').show();
-        });
             $("#yes1").one("click",function(){
                 addToInstructions("Back into hell you go...");
                 progress();
@@ -928,5 +956,4 @@ function downstairsseven(){
             });
             });
         }
-    
 });

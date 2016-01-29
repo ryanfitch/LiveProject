@@ -1,6 +1,6 @@
 body {
     font-family: 'Special Elite', serif;
-    font-size: 17px;
+    font-size: 19px;
     color: orange;
     text-align: center;
     margin: auto;
@@ -9,7 +9,7 @@ body {
 }
  
 #intro {
-    font-size: 40px;
+    font-size: 60px;
 }
 
 #button {
@@ -19,6 +19,14 @@ body {
 
 footer {
     font-size: 12px;
+}
+
+#coffins {
+    font-size: 50px;
+}
+
+#coffins button {
+    color: black;
 }
 
 .typed-cursor{
