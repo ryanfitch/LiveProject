@@ -19,7 +19,7 @@ $(document).ready(function() {
         $("#yes1").hide();
         $("#no2").hide();
         $("#instructions").empty();
-        addToInstructions("^750</br>What is my Name?");
+        addToInstructions("^750</br>What is my name?");
         $("#button").one("click",function(){
             var name = document.getElementById("myText").value;
             if ( name !== "" ) {
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
     function namingnaming(name){
         $("#instructions2").empty();
-        $("#story").typed({strings: ["My name is " +name+"</br>The choices I make determine whether I live or die</br>This is my story<hr>"], typeSpeed: 0
+        $("#story").typed({strings: ["My name is " +name+".</br>The choices I make determine whether I live or die.</br>This is my story.<hr>"], typeSpeed: 0
         });
         $("#instructions").empty();
         $("#story").empty();
