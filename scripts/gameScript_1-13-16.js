@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $(function() {
-
+            var name = "";
             start();
 
         });
@@ -20,7 +20,7 @@ $(document).ready(function() {
         $("#instructions").empty();
         addToInstructions("^750</br>What is my name?");
         $("#button").one("click",function(){
-            var name = document.getElementById("myText").value;
+            name = document.getElementById("myText").value;
             if ( name !== "" ) {
                 addToInstructions("Is " +name+" my correct name? </br>Hit yes or no.");
             }
@@ -55,10 +55,14 @@ $(document).ready(function() {
 
     function play(){
         $("#textInput").hide();
+        $('.yes2').off();
+        $('.no2').off();
+        $('.yes2').on();
+        $('.no2').on();
         addToInstructions("^1500Do you dare start this horrific journey?  Hit yes or no:");
 
         $(".yes2").one( "click", function(){
-            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!', 'You were warned..."], typeSpeed: -50
+            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!, You were warned..."], typeSpeed: -50
             });
             $("#instructions").empty();
             $("#buttonOptions").show();
@@ -1175,7 +1179,7 @@ $(document).ready(function() {
         $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE HALLWAY</br>Option 2: GO THROUGH THE DOOR</br>Hit 1 or 2:");
         $(".yes56").one("click",function(){
-                    $("#instructions").html('"Let\'s look around," I told Jessica. I scanned the walls, floor and ceiling. They were barren. No doors. No windows. Just a long, undecorated hallway. "I can\'t find anything," Jessica said. So, we headed toward the door.<p>We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.</p>', function(){
+                    addToInstructions('"Let\'s look around," I told Jessica. I scanned the walls, floor and ceiling. They were barren. No doors. No windows. Just a long, undecorated hallway. "I can\'t find anything," Jessica said. So, we headed toward the door.<p>We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.</p>', function(){
                         downstairsseven();
                     });
                 });
