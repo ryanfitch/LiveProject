@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $(function() {
+
             start();
 
         });
@@ -41,7 +42,7 @@ $(document).ready(function() {
 
     function namingnaming(name){
         $("#instructions2").empty();
-        $("#story").typed({strings: ["My name is " +name+".</br>The choices I make determine whether I live or die.</br>This is my story.<hr>"], typeSpeed: 0
+        $("#story").typed({strings: ["My name is " +name+".</br>The choices I make determine whether I live or die.</br>This is my story.<hr>"], typeSpeed: -50
         });
         $("#instructions").empty();
         $("#story").empty();
@@ -49,15 +50,15 @@ $(document).ready(function() {
     }
 
     function addToInstructions(newInstruction, callback) {
-        $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : -100 , callback : callback });
+        $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : -50 , callback : callback });
     }
 
     function play(){
         $("#textInput").hide();
-        addToInstructions("^4500Do you dare start this horrific journey?  Hit yes or no:");
+        addToInstructions("^1500Do you dare start this horrific journey?  Hit yes or no:");
 
         $(".yes2").one( "click", function(){
-            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!', 'You were warned..."], typeSpeed: 0
+            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!', 'You were warned..."], typeSpeed: -50
             });
             $("#instructions").empty();
             $("#buttonOptions").show();
@@ -86,8 +87,12 @@ $(document).ready(function() {
     }
 
     function firstchoice() {
-        $('.yes3').unbind();
-        $('.no3').unbind();
+        $('.yes3').off();
+        $('.no3').off();
+        $('.yes3').on();
+        $('.no3').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("^1000<br>WHAT DID I DO?</br> Option 1: INVESTIGATE THE FOOTSTEPS</br>Option 2: WALK TOWARD THE HOUSE </br> Hit 1 or 2: ");
 
         $(".yes3").one( "click", function(){
@@ -103,9 +108,13 @@ $(document).ready(function() {
     }
 
     function firstfirstchoice(){
-        $('.yes4').unbind();
-        $('.no4').unbind();
-        addToInstructions("<br>WHAT DID I DO?</br>Option 1: PICK UP THE HATCHET</br>Option 2: LEAVE THE HATCHET</br>Hit 1 or 2: ");
+        $('.yes4').off();
+        $('.no4').off();
+        $('.yes4').on();
+        $('.no4').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
+        addToInstructions("<br>WHAT DID I DO?</br>Option 1: LEAVE THE HATCHET</br>Option 2: PICK UP THE HATCHET</br>Hit 1 or 2: ");
         $(".yes4").one("click",function(){
                 addToInstructions("</br>I left the hatchet and continued on toward the house.</br>As I climbed the porch, the planks protested my presence through sharp whining. I reached for the door and heard rustling behind me. I swiveled my head and saw a dark figure hulking toward me. I couldn't make out its eyes but noticed an ax in its hand. I said, \"Hello?\"... No response. It then swung an ax in my direction and growled. I was in danger.", function() {
                     secondchoice();
@@ -120,8 +129,12 @@ $(document).ready(function() {
     }
 
     function secondchoice(){
-        $('.yes5').unbind();
-        $('.no5').unbind();
+        $('.yes5').off();
+        $('.no5').off();
+        $('.yes5').on();
+        $('.no5').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: RUN</br>Hit 1 or 2: ");
         $(".yes5").one("click",function(){
                 msg="I ran at it, swinging my fists. It stopped me with ease through use of a sharpened ax. The last thing I saw was red on silver. And this is the end of my story.";
@@ -136,8 +149,12 @@ $(document).ready(function() {
 
 
     function thirdchoice(){
-        $('.yes6').unbind();
-        $('.no6').unbind();
+        $('.yes6').off();
+        $('.no6').off();
+        $('.yes6').on();
+        $('.no6').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: RUN</br>Hit 1 or 2: ");
         $(".yes6").one("click",function(){
                 addToInstructions("<br>I ran at it, it swung an ax and I ducked. I lifted my hatchet into its throat. It let out a yowl and fell in a heap. It had ceased breathing and I picked up the ax.", function(){
@@ -151,8 +168,12 @@ $(document).ready(function() {
 
 
     function thirdthirdchoice() {
-        $('.yes7').unbind();
-        $('.no7').unbind();
+        $('.yes7').off();
+        $('.no7').off();
+        $('.yes7').on();
+        $('.no7').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HEAD TOWARD THE HOUSE</br>Option 2: EXAMINE THE BODY</br>Hit 1 or 2: ");
         $(".yes7").one("click",function() {
                 addToInstructions('As I made my way back to the porch, I wondered why I was attacked and I was thankful for having a weapon. "Why is he trying to kill me?" I wondered.', function(){
@@ -167,8 +188,12 @@ $(document).ready(function() {
     }
 
     function fourthchoice() {
-        $('.yes8').unbind();
-        $('.no8').unbind();
+        $('.yes8').off();
+        $('.no8').off();
+        $('.yes8').on();
+        $('.no8').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>I reached the porch. I tried to open the front door but the door was locked. If I had tried running from my attacker earlier, I would have been met with a latched door. There was a window on the right and one on the left. I could hear more rustling in the distance.<br><br>WHAT DID I DO?<br>Option 1: OPEN A WINDOW<br>Option 2: STAY OUTSIDE THE HOUSE<br>Hit 1 or 2: ");
         $(".yes8").one("click",function() {
                 addToInstructions("<br>There are two windows. Which window did I open?", function(){
@@ -181,8 +206,12 @@ $(document).ready(function() {
     }
 
     function fourthfourthchoice(){
-        $('.yes9').unbind();
-        $('.no9').unbind();
+        $('.yes9').off();
+        $('.no9').off();
+        $('.yes9').on();
+        $('.no9').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>Option 1: OPEN THE LEFT WINDOW</br>Option 2: OPEN THE RIGHT WINDOW</br>Hit 1 or 2: ");
         $(".yes9").one("click",function(){
                     addToInstructions("<p>I messed around with the window and it opened with no resistance. I climbed inside and shut the window behind me. For good measure, I locked both windows. I took a moment and viewed the room I was in. It was a large hall. Suddenly a memory flashed... I am an investigator. I was on a major case. What was that case about...? Bang! A loud noise from the next room over. Two doors. One door leading to the noise and another door leading away from it.</p>", function(){
@@ -198,8 +227,12 @@ $(document).ready(function() {
 
 
     function fifthchoice() {
-        $('.yes10').unbind();
-        $('.no10').unbind();
+        $('.yes10').off();
+        $('.no10').off();
+        $('.yes10').on();
+        $('.no10').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: OPEN THE DOOR LEADING TOWARD THE NOISE<br>Option 2: GO THROUGH THE DOOR LEADING AWAY FROM THE NOISE<br>Hit 1 or 2: ");
         $(".yes10").one("click",function() {
             deadanddead("<br><br>I bravely opened the door that led to the noise. The mystery was instantly solved. There stood a man with a large shotgun in his hands. He wasted no time in taking aim at my body. Not that aim mattered with a gun like that. I quickly threw my hatchet at him. He moved to the left but my hatchet cut his thigh. It delayed the shooter slightly but didn't stop him. He shot. The gun tore through my midsection and this is the end of my story.", fifthchoice);
@@ -212,8 +245,12 @@ $(document).ready(function() {
     }
 
     function fifthfifthchoice() {
-        $('.yes11').unbind();
-        $('.no11').unbind();
+        $('.yes11').off();
+        $('.no11').off();
+        $('.yes11').on();
+        $('.no11').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HIDE UNDER THE TABLE<br>Option 2: HIDE IN THE CLOSET<br>Hit 1 or 2: ");
         $(".yes11").one("click",function(){
                 sixthchoice();
@@ -224,8 +261,12 @@ $(document).ready(function() {
         }
 
     function sixthchoice(){
-        $('.yes12').unbind();
-        $('.no12').unbind();
+        $('.yes12').off();
+        $('.no12').off();
+        $('.yes12').on();
+        $('.no12').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("I hid and a man entered the room. He had a white shirt on with red stains. He wore a torn sack on his head and carried a double barreled shotgun. I held my breath. Lucky for me the man quickly stepped through the kitchen. He knocked over some chairs and arrived at a staircase and a door. He chose the door and exited the room. I waited until I no longer heard him. \"I need a gun\" I thought.</br>WHAT DID I DO?</br>Option 1: GO UP THE STAIRS</br>Option 2: FOLLOW THE MAN WITH THE SHOTGUN</br>Hit 1 or 2: ");
         $(".yes12").one("click",function(){
             addToInstructions("I made my way up the staircase to what appeared to be the second floor of the house. There was a long hallway ahead of me. There was a table with a lit candle on it. I saw what looked to be a folder. There was a single sheet of lined paper on it. A scrawled quote was written: \"Most people do not really want freedom, because freedom involves responsibility, and most people are frightened of responsibility.\" -Sigmund Freud \"Well that\'\'s a load of crap\" I thought to myself. I paused and contemplated my current situation. I had a fleeting thought: \"Maybe I should just burn this house down...\"", function(){
@@ -239,8 +280,12 @@ $(document).ready(function() {
     }
 
     function seventhchoice() {
-        $('.yes13').unbind();
-        $('.no13').unbind();
+        $('.yes13').off();
+        $('.no13').off();
+        $('.yes13').on();
+        $('.no13').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: USE THE CANDLE TO START A FIRE<br>Option 2: KEEP EXPLORING THE HALLWAY<br>Hit 1 or 2: ", function(){
         });
         $(".yes13").one("click",function() {
@@ -254,8 +299,14 @@ $(document).ready(function() {
     }
 
     function eigthchoice(){
-        $('.yes14').unbind();
-        $('.no14').unbind();
+        $('.yes14').off();
+        $('.no14').off();
+        $('.yes14').on();
+        $('.no14').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
+        $('.yes14').off();
+        $('.no14').off();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: RESCUE THE WOMAN</br>Option 2: LEAVE HER</br>Hit 1 or 2:");
         $(".yes14").one("click",function(){
                     addToInstructions("<p>I boldly opened the door. I saw a woman. There was a man with a sledge hammer walking toward her aggressively. The woman had blonde hair and her face had some blood on it. She was my age and looked terrified. \"Hey!\" I yelled at the man, \"Leave her alone!\" The man was in stained overalls and had no shoes on. He turned his attention to me and headed my way. I gripped my ax and hatchet tightly in each hand. The man swung his sledgehammer at me, I quickly ducked and thrust my ax deep into his chin. The man grunted and fell to the ground.</p>", function(){
@@ -269,8 +320,12 @@ $(document).ready(function() {
         }
 
     function eigtheigthchoice(){
-        $('.yes15').unbind();
-        $('.no15').unbind();
+        $('.yes15').off();
+        $('.no15').off();
+        $('.yes15').on();
+        $('.no15').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: TALK WITH THE WOMAN</br>Option 2: INSPECT THE BODY</br>Hit 1 or 2:");
         $(".yes15").one("click",function(){
                     addToInstructions("<p>I asked the woman, \"How did you end up here and what the hell is going on?\" She stared at me, she looked half angry and half exhausted. \"Same question to you. Thank you for saving me though. I don\'\'t remember how I got here. This place is full of psychotics who seem to want to murder us.\" She said.  \"What\'\'s your name?\" \"My name is "+name+ "</br>\"Hello, "+name+", my name is Jessica.\" She replied.</br>\"I also don''t know how I ended up here. People have been trying to kill me. And some even have pictures of me with \"KILL\" written on it.\" Jessica responded with, \"We should get out of here together.\"</br>\"Can I trust her?\" I thought to myself.</p>", function(){
@@ -285,8 +340,12 @@ $(document).ready(function() {
         }
 
     function eigtheigtheigtheigthchoice(){
-        $('.yes16').unbind();
-        $('.no16').unbind();
+        $('.yes16').off();
+        $('.no16').off();
+        $('.yes16').on();
+        $('.no16').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: TALK MORE WITH THE WOMAN</br>Option 2: LEAVE THE ROOM</br>Hit 1 or 2:");
         $(".yes16").one("click",function(){
                     addToInstructions("<p>\"What\'s your name?\" she asked. \"My name is "+name+". I replied. \"Hello, " +name+ ", my name is Jessica.\" She replied.</br>\"I also don\'t know how I ended up here. People have been trying to kill me. And some even have pictures of me with \"KILL\" written on it.\" Jessica responded with, \"We should get out of here together.\"</br>\"Can I trust her?\" I thought to myself.</p>", function(){
@@ -301,8 +360,12 @@ $(document).ready(function() {
         
 
     function eigtheigtheigthchoice(){
-        $('.yes17').unbind();
-        $('.no17').unbind();
+        $('.yes17').off();
+        $('.no17').off();
+        $('.yes17').on();
+        $('.no17').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: YES, LEAVE WITH THE WOMAN</br>Option 2: NO, LEAVE HER BEHIND</br>Hit 1 or 2:");
         $(".yes17").one("click",function(){
                     addToInstructions("<p>\"Okay. I\'ll leave with you. But who are you?\" I asked, \"I don\'\'t know the first thing about you.\" \"I woke up in here. Last thing I remember is being at work and-\" she began.</br>\"Shhhh!\" I snapped. I heard footsteps approaching the door...\'</p>", function(){
@@ -317,8 +380,12 @@ $(document).ready(function() {
         }
 
     function ninthchoice(){
-        $('.yes18').unbind();
-        $('.no18').unbind();
+        $('.yes18').off();
+        $('.no18').off();
+        $('.yes18').on();
+        $('.no18').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: GIVE JESSICA MY HATCHET</br>Option 2: KEEP BOTH WEAPONS TO MYSELF</br>Hit 1 or 2:");
         $(".yes18").one("click",function(){
                     addToInstructions("<p>I threw my hatchet on the floor near Jessica and said, \"Take this.\" A man burst in the room. He had what appeared to be a red priest\'s robe on and he held a large pistol in his hand. Jessica was near him. He didn\'t notice her.</p>", function(){
@@ -333,8 +400,12 @@ $(document).ready(function() {
     
 
     function ninthninthchoice() {
-        $('.yes19').unbind();
-        $('.no19').unbind();
+        $('.yes19').off();
+        $('.no19').off();
+        $('.yes19').on();
+        $('.no19').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: DODGE HIM<br>Option 2: ATTACK HIM<br>Hit 1 or 2:");
         $(".yes19").one("click",function(){
                 addToInstructions('I moved backward. He took careful aim at my head and - crunch! Jessica\'s hatchet sunk into the back of his head, killing him instantly. She stared at me for a couple seconds. I walked over and picked up the pistol. I checked it, it was loaded and appeared to hold six bullets. "Well done," I said. "Now let\'s get out of here."', function(){
@@ -348,8 +419,12 @@ $(document).ready(function() {
     }
 
     function tenthchoice() {
-        $('.yes20').unbind();
-        $('.no20').unbind();
+        $('.yes20').off();
+        $('.no20').off();
+        $('.yes20').on();
+        $('.no20').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: EXPLORE THE BACK OF THE ROOM<br>Option 2: HEAD OUT THE DOOR I CAME IN");
         $(".yes20").one("click",function(){
                 addToInstructions("We headed to the back of the room. Jessica found a flashlight. There was a small doorway. I opened it and saw a staircase leading up. It was dark. I decided to cover our path, so I moved a bookshelf in front of the door. I left enough room for us to squeeze in. I shut the door behind us.", function(){
@@ -363,6 +438,12 @@ $(document).ready(function() {
         }
 
     function tenthtenthchoice() {
+        $('.yes21').off();
+        $('.no21').off();
+        $('.yes21').on();
+        $('.no21').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: HEAD UP FIRST<br>Option 2: HAVE JESSICA LEAD<br>Hit 1 or 2");
         $(".yes21").one("click",function(){
                 addToInstructions("We headed up. The stairs creaked. There were spiderwebs and it smelled like rotted wood. Ahead of us there was a skittering sound. Jessica gasped. I put my hand on her mouth and whispered for her to be quiet. Her skin was ice cold. I grabbed the flashlight and told Jessica to stay where she was. I walked ahead and reached the top of the stairs. We were in a library. The books were covered in dust and cobwebs. They appeared to be on a variety of subjects. I looked up and saw large spikes hanging from the ceiling. Very odd. I then panned the flashlight left to right and stopped my flashlight on a body.", function(){
@@ -377,6 +458,12 @@ $(document).ready(function() {
         }
 
     function eleventhchoice() {
+        $('.yes22').off();
+        $('.no22').off();
+        $('.yes22').on();
+        $('.no22').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?<br>Option 1: INSPECT THE BOOKS<br>Option 2: INSPECT THE BODY<br>Hit 1 or 2");
         $(".yes22").one("click",function(){
                 msg = "<p>I called Jessica over. We walked over to the books. I picked one up. It was then I realized that the book triggered the spikes. Faster than I could react, the spikes fell from the ceiling. Jessica and I were impaled from above and this is the end of my story.</p>";
@@ -390,6 +477,12 @@ $(document).ready(function() {
         }
 
     function twelfthchoice(){
+        $('.yes23').off();
+        $('.no23').off();
+        $('.yes23').on();
+        $('.no23').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: READ THE NOTE</br>Option 2: INSPECT THE BOOKS</br>Hit 1 or 2:");
         $(".yes23").one("click",function(){
                     addToInstructions("<p>The note said \"Death from above - avoid the books\". Something suddenly dropped onto my cheek crom the ceiling. Cold. Wet. It was blood. I looked up, the spikes above the body were red with blood. It appeared that the books triggered the spikes somehow. \"Jessica, we need to leave this library.\" I said. </p>", function(){
@@ -403,6 +496,12 @@ $(document).ready(function() {
     }
 
     function twelftwelfchoice(){
+        $('.yes24').off();
+        $('.no24').off();
+        $('.yes24').on();
+        $('.no24').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("WHAT DID I DO?</br>Option 1: HEAD TOWARD THE UNEXPLORED DOOR</br>Option 2: GO BACK FROM WHER WE CAME</br>Hit 1 or 2:");
         $(".yes24").one("click",function(){
                     addToInstructions("<p>We ran toward the doorway on the opposite side of the room from where we came in. There was a crash and footsteps up the stairway we had been on moments before. Hooded men entered the room with weapons leveled.' </p>", function(){
@@ -416,6 +515,12 @@ $(document).ready(function() {
     }
     
     function thirteenthchoice(){
+        $('.yes25').off();
+        $('.no25').off();
+        $('.yes25').on();
+        $('.no25').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("WHAT DID I DO?</br>Option 1: GO FOR THE DOOR</br>Option 2: GRAB A BOOK</br>Hit 1 or 2:");
         $(".yes25").one("click",function(){
                     msg="<p>I ran toward the door and was shot in the back. I saw Jessica go down as well. A bullet had torn through her head. I felt an unbearable pain and burning in my lower back. I grabbed a book, the spikes came down. I figured if I was going, I was taking them with me. And this is the end of my story. </p>";
@@ -429,6 +534,12 @@ $(document).ready(function() {
     }
 
     function thirteenththirteenthchoice(){
+        $('.yes26').off();
+        $('.no26').off();
+        $('.yes26').on();
+        $('.no26').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("WHAT DID I DO?</br>Option 1: CHECK OUT THE ROOM</br>Option 2: TALK TO JESSICA</br>Hit 1 or 2:");
         $(".yes26").one("click",function(){
                     addToInstructions("<p>I scanned the room we found ourselves in. It was small and seemed to only serve as a passage from the library to whatever lay beyond. I looked at Jessica and noticed an unventured door behind her. I stared off in space and thought about how I had killed around ten people since arriving in this hellhole. </p>", function(){
@@ -443,6 +554,12 @@ $(document).ready(function() {
     }
 
     function thirteenonechoice(){
+        $('.yes27').off();
+        $('.no27').off();
+        $('.yes27').on();
+        $('.no27').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR</br>Option 2: TALK TO JESSICA</br>Hit 1 or 2:");
         $(".yes27").one("click",function(){
                     thirteenthreechoice();
@@ -455,18 +572,24 @@ $(document).ready(function() {
     }
 
     function thirteentwochoice(){
-    addToInstructions("WHAT DID I DO?</br>Option 1: SCAN THE ROOM</br>Option 2: SEARCH FOR A DOOR OUT</br>Hit 1 or 2:");
-    $(".yes28").one("click",function(){
-                addToInstructions("</br>I scanned the room we found ourselves in. It was small and seemed to only serve as a passage from the library to whatever lay beyond. I looked at Jessica and noticed an unventured door behind here. I stared off in space and thought about how I had killed around ten people since arriving in this hellhole.", function(){
-                    thirteenthreechoice();
+        $('.yes28').off();
+        $('.no28').off();
+        $('.yes28').on();
+        $('.no28').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
+        addToInstructions("WHAT DID I DO?</br>Option 1: SCAN THE ROOM</br>Option 2: SEARCH FOR A DOOR OUT</br>Hit 1 or 2:");
+        $(".yes28").one("click",function(){
+                    addToInstructions("</br>I scanned the room we found ourselves in. It was small and seemed to only serve as a passage from the library to whatever lay beyond. I looked at Jessica and noticed an unventured door behind here. I stared off in space and thought about how I had killed around ten people since arriving in this hellhole.", function(){
+                        thirteenthreechoice();
+                    });
                 });
-            });
-    $(".no28").one("click",function() {
-                addToInstructions("I scanned the room we found ourselves in. It was small and seemed to only serve as a passage from the library to whatever lay beyond. I looked at Jessica and noticed an unventured door behind here. I stared off in space and thought about how I had killed around ten people since arriving in this hellhole.", function(){
-                    thirteenthreechoice();
+        $(".no28").one("click",function() {
+                    addToInstructions("I scanned the room we found ourselves in. It was small and seemed to only serve as a passage from the library to whatever lay beyond. I looked at Jessica and noticed an unventured door behind here. I stared off in space and thought about how I had killed around ten people since arriving in this hellhole.", function(){
+                        thirteenthreechoice();
+                    });
                 });
-            });
-    }
+        }
 
     function thirteenthreechoice() {
         addToInstructions("<br><br>We entered the door and what I saw shocked me. A brand-new, stainless steel labratory was in front of us. It was exceptionally bright and vast. I immediately saw a doctor operating on someone. There were two individuals in white surrounding him. Everyone was staring at Jessica and I. And they were smiling. The corners of their mouths were sewn upwards. The stitches held a permanent, forced smile on their cheeks. They also had blood on their hands and the front of their clothes.", function(){
@@ -475,6 +598,12 @@ $(document).ready(function() {
     }
 
     function thirteenththirteenththirteenthchoice() {
+        $('.yes29').off();
+        $('.no29').off();
+        $('.yes29').on();
+        $('.no29').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: IGNORE THEM</br>Option 2: TALK WITH THEM</br>Hit 1 or 2:");
         $(".yes29").one("click",function(){
                     addToInstructions("<p>Due to their utter creepiness, I ignored the group. I walked around the other side of the room. Looking for an exit. I then noticed it. The only exit was by the surgical team. They were still staring. Hands moving as they performed the action of surgery - smiling right at us. I had no choice but to confront them...</p>", function(){
@@ -482,13 +611,19 @@ $(document).ready(function() {
                     });
                 });
         $(".no29").one("click",function() {
-                    $("#instructions").html('I walked closer and asked the surgeon, "What happened to your face?" He stared at me, making odd sounds. Jessica screamed! "They have no tongues!" She was right, none of these individuals had tongues. "What the..." I said and I looked down at the patient they were operating on. His brain was exposed. It appeared they were performing a brain surgery. But I noticed the patient wasn\'t breathing. He also stunk. "He\'s dead. Why are you operating on a corpse?" The surgeon\'s eyes flashed and he pointed at the door behind him. His assistants stood staring. It was evident they wanted us to leave...', function(){
+                    addToInstructions('I walked closer and asked the surgeon, "What happened to your face?" He stared at me, making odd sounds. Jessica screamed! "They have no tongues!" She was right, none of these individuals had tongues. "What the..." I said and I looked down at the patient they were operating on. His brain was exposed. It appeared they were performing a brain surgery. But I noticed the patient wasn\'t breathing. He also stunk. "He\'s dead. Why are you operating on a corpse?" The surgeon\'s eyes flashed and he pointed at the door behind him. His assistants stood staring. It was evident they wanted us to leave...', function(){
                         firstfifteenthchoice();
                     });
                 });
             }
 
     function fourteenthchoice() {
+        $('.yes30').off();
+        $('.no30').off();
+        $('.yes30').on();
+        $('.no30').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: ATTACK THEM</br>Option 2: TALK WITH THEM</br>Hit 1 or 2:");
         $(".yes30").one("click",function(){
                     msg = "<p>I pulled out my pistol and methodically shot the three of them. Boom, boom, boom. Three head shots. I heard a bang from behind me and turned just as I felt a crushing blow on the left side of my head. I couldn't make out my attacker and this is the end of my story.</p>";
@@ -502,6 +637,12 @@ $(document).ready(function() {
         }
 
     function firstfifteenthchoice(){
+        $('.yes31').off();
+        $('.no31').off();
+        $('.yes31').on();
+        $('.no31').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>I opened the door, let Jessica in and shut it behind us. I then locked it. Glad to be away from that room. \"This is a nightmare,\" I said. Jessica fell to the floor and rested against the wall. I sat next to her. She was shaking. \"What...is...happening...here?\" She trembled. \"I\'ve never heard of or seen such filth and such deplorableness...\" She asked me, \"What were those people doing? Why were they mauled?\" I looked at her and tried to think of something comforting to say. But nothing intelligent entered my mind. I sat, confused and upset.</br>WHAT DID I DO?</br>Option 1: SIT IN SILENCE</br>Option 2: TALK WITH JESSICA</br>Hit 1 or 2:");
         $(".yes31").one("click",function(){
                     addToInstructions("<p>I looked around the room we were in. It was small and undecorated. It was wild to me that this \'house\' had so many elements. It didn't mesh well: a library, an old-fashioned dining room, a labratory... I still didn't know where I was or how I got here exactly. I looked up and checked out the room we were in. </p>", function(){
@@ -516,6 +657,12 @@ $(document).ready(function() {
         }
 
     function fifteenthchoice(){
+        $('.yes32').off();
+        $('.no32').off();
+        $('.yes32').on();
+        $('.no32').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("</br>I opened the door, let Jessica in and shut it behind us. I then locked it. Glad to be away from that room. \"This is a nightmare,\" I said. Jessica fell to the floor and rested against the wall. I sat next to her. She was shaking. \"What...is...happening...here?\" She trembled. \"I\'ve never heard of or seen such filth and such deplorableness...\" I looked at her and tried to think of something comforting to say. But nothing intelligent entered my mind. All I knew is that we couldn\'t sit here. \"We need to get out of this torment.\" I looked over the room. It was small. There were two doors. One door with light coming from the bottom. The other door had a cool breeze and no light on the bottom.</br>WHAT DID I DO?</br>Option 1: ENTER THE ROOM WITH THE BREEZE</br>Option 2: ENTER THE DOOR WITH THE LIGHT</br>Hit 1 or 2:");
         $(".yes32").one("click",function(){
                     addToInstructions("<p>I stood up, grabbed Jessica's hand and lifted her to a standing position. We walked to the door and opened it. I blinked. We were outside! I scanned the area. Wait... We were outside but we weren't outside. We were in an outdoor corridor. To my left was the exterior of the house, to my right was a 15 foot tall fence with brutal spikes at the top and in front of us was a path that appeared to lead to another door. </p>", function(){
@@ -529,6 +676,12 @@ $(document).ready(function() {
         }
 
     function sixteenthchoice(){
+        $('.yes33').off();
+        $('.no33').off();
+        $('.yes33').on();
+        $('.no33').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CLIMB THE FENCE</br>Option 2: TAKE THE PATH TO THE DOOR</br>Hit 1 or 2:");
         $(".yes33").one("click",function(){
                     msg = "<p>I walked over the fence and gripped the bars. \"Are you sure that\'s a good idea?\" Jessica asked. She eyed the spikes at the top. \"I\'m a good climber.\" I replied. \"I\'ll figure something out.\" \"Okay,\" she said. \"But I can\'t climb it, so what happens when you get over?\" \"I said I\'d figure it out!\" I snapped back. I handed her my pistol and began making my way up the fence. The bars were slightly rusted, which helped my grip. I made it to the top, sweating and out of breath. I reached over the spikes and pulled. I slipped and fell forward. I heard Jessica yell and then felt the rusted spikes impale my throat and upper body. And this is the end of my story.</p>";
@@ -542,6 +695,12 @@ $(document).ready(function() {
             }
 
     function seventeenthchoice(){
+        $('.yes34').off();
+        $('.no34').off();
+        $('.yes34').on();
+        $('.no34').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK FOR THE KEY</br>Option 2: KICK THE DOOR DOWN</br>Hit 1 or 2:");
         $(".yes34").one("click",function(){
                 addToInstructions("\"Jessica, help me find the key.\" I looked on the path. Jessica lifted the door mat and what do you know? There was a key. It was an old-fashioned, large fancy-looking key. \"You\'re welcome,\" she winked as she handed it to me. I tried it and it worked! The door clicked and opened. Immediately something jumped on top of me and knocked me on my back.", function(){
@@ -555,6 +714,12 @@ $(document).ready(function() {
             }
 
     function seventeenthseventeenthchoice(){
+        $('.yes35').off();
+        $('.no35').off();
+        $('.yes35').on();
+        $('.no35').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CALL FOR HELP</br>Option 2: ATTACK WHATEVER WAS ON TOP OF ME</br>Hit 1 or 2:");
         $(".yes35").one("click",function(){
                     addToInstructions("I yelled for Jessica. She swung her hatchet, there was a shrill yelp and blood splattered across my face. I quickly wiped my eyes and stood to my feet, pistol at the ready. On the floor, there was a dead dog, half of its neck sliced through. It was a wolf-like dog, large and, by all appearances, hungry. \"Really?\" I asked. \"Crazy people and now a killer dog...\" I looked to Jessica, she was panting and her hatchet dripped. \"Thank you.\" She nodded in response. In the corner there was a set of television screens. \"I think it\'s a security system.\" I said to Jessica and myself.", function(){
@@ -569,19 +734,31 @@ $(document).ready(function() {
         }
 
     function eighteenthchoice(){
+        $('.yes36').off();
+        $('.no36').off();
+        $('.yes36').on();
+        $('.no36').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TURN THE SCREENS ON?</br>Option 2: LEAVE THEM BE?</br>Hit 1 or 2:");
         $(".yes36").one("click",function(){
                     addToInstructions("I turned the security system screens on. There were eight screens. I could see some areas where we had been and a couple we had not. Suddenly there was a tall figure on one of the screens. He was coming up the path we had just walked on. He held a long butcher\'s knife in his right hand. I couldn\'t make out his face. \"Jessica!\" I hissed, \"Someone\'s coming.\"", function(){
                         nineteenthchoice();
                     });
                 });
-        $(".no37").one("click",function() {
+        $(".no36").one("click",function() {
                     msg ="<p>I didn\'t turn on security camera screens. Jessica and I scanned the room. I searched a nearby bookcase. There were books on human anatomy and neurology. I picked up one entitled \"Brains and Minds\" and flipped through. There were diagrams of different section of the brains indicating where to cut to supposedly affect behavior. \"Jessica, you have to see -\" I turned my head and saw Jessica being held from behind by a tall man. How did I not hear him? He had a knife to her throat. I raised my weapon and while staring directly at me, the man ran the knife through the front of her neck. Jessica died. I took my ax and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
                     deadanddead(msg, eighteenthchoice);
                 });
         }
 
     function nineteenthchoice(){
+        $('.yes39').off();
+        $('.no39').off();
+        $('.yes39').on();
+        $('.no39').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: HIDE</br>Option 2: PREPARE TO ATTACK</br>Hit 1 or 2:");
         $(".yes39").one("click",function(){
                     addToInstructions("\"We need to hide, now!\" I hissed at Jessica. There was a stand-alone closet that had thin horizontal slats. I pulled Jessica inside and shut the doors just in time. The man entered the room. He immediately walked over to the screens and looked them over. He began walking around the room and appeared to be looking for us. He walked in front of our closet and looked at the doors. We held our breath. Can he see us?");
@@ -594,19 +771,31 @@ $(document).ready(function() {
     }
 
     function twentychoice(){
+        $('.yes40').off();
+        $('.no40').off();
+        $('.yes40').on();
+        $('.no40').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT IT OUT</br>Option 2: ATTACK</br>Hit 1 or 2:");
         $(".yes40").one("click",function(){
                     addToInstructions("My heart raced. I hoped he wouldn't hear it pounding. After what was merely two seconds but seemed like an eternity he continued walking. He finished his circle of the room. He paused at the door he came in. Glanced back over toward our closet. And then he left the room. Jessica and I simultaneously breathed sighs of relief. We exited the closet.", function(){
                         twentytwentychoice();
                     });
                 });
-        $(".no41").one("click",function() {
+        $(".no40").one("click",function() {
                     msg ="<p>I took my ax, smashed opened the closet doors and charged at him. He made an attempt to stab me but I dodged and brought my ax down on his head. Two more men entered the room and before I could react they shot me in the back. And this is the end of my story.</p>";
                     deadanddead(msg, twentychoice);
                 });
     }
 
     function twentytwentychoice(){
+        $('.yes42').off();
+        $('.no42').off();
+        $('.yes42').on();
+        $('.no42').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LOOK AT SECURITY SCREENS AGAIN</br>Option 2: SEARCH THE ROOM</br>Hit 1 or 2:");
         $(".yes42").one("click",function(){
                     addToInstructions("I took a look at the security cameras again. Behind us, in the path we came from there was huddle of men. There were three of them and they appeared to be talking and pointing. The screens showed that the room ahead of us had no one in it but contained several coffins!", function(){
@@ -621,6 +810,12 @@ $(document).ready(function() {
     }
 
     function twentyonechoice(){
+        $('.yes43').off();
+        $('.no43').off();
+        $('.yes43').on();
+        $('.no43').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: MOVE BACKWARD</br>Option 2: MOVE FORWARD</br>Hit 1 or 2:");
         $(".yes43").one("click",function(){
                     msg = "<p>I readied my gun, opened the door and opened fire on the three men. Bam! One down. Bam! Another down. The third one had made his way close to me and grabbed for the gun. There was a struggle. He was twice my size and overpowered me. Bam! A shot went off. I heard a noise. Jessica had fallen to the ground - blood rushing out of her head. And then... Bam! And this is the end of my story.</p>";
@@ -634,6 +829,12 @@ $(document).ready(function() {
     }
 
     function twentyoneonechoice(){
+        $('.yes44').off();
+        $('.no44').off();
+        $('.yes44').on();
+        $('.no44').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE CHECKING THE ROOM</br>Option 2: OPEN A COFFIN</br>Hit 1 or 2:");
         $(".yes44").one("click",function(){
                     addToInstructions('I looked over the walls and it looked like we were in a dead end (no pun intended). The only door in the room was the one we entered through. Jessica ran her hand against the wall. "It\'s damp," she said.', function(){
@@ -646,6 +847,12 @@ $(document).ready(function() {
     }
 
     function twentytwochoice(){
+        $('.yes45').off();
+        $('.no45').off();
+        $('.yes45').on();
+        $('.no45').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: LEAVE THROUGH THE DOOR I ENTERED</br>Option 2: OPEN A COFFIN</br>Hit 1 or 2:");
         $(".yes45").one("click",function(){
                     msg = "<p>Because we couldn't find a way, Jessica and I left the room the way we came in. And it seemed the three men we had seen earlier on the security displays had caught up with us. Jessica jumped in front of me swinging her hatchet. She didn't stand a chance. The last thing I saw was the barrel of a gun. And this is the end of my story.</p>";
@@ -762,6 +969,12 @@ $(document).ready(function() {
     }
 
     function downstairsone(){
+        $('.yes46').off();
+        $('.no46').off();
+        $('.yes46').on();
+        $('.no46').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: BLOCK THE DOOR WITH A COFFIN</br>Option 2: HIDE IN A COFFIN</br>Hit 1 or 2:");
         $(".yes46").one("click",function(){
                     addToInstructions('We pushed a coffin against the door. It was very heavy and I broke a sweat. The stairs finished moving into place and there was a pounding at the door. I really had no choice. We headed down the stairs. The stairs were made of stone. There was no light on the staircase but I could make out a dim glow at the bottom. The pounding above continued but the door was thick and the coffin heavy. I looked at Jessica. She was dirty and sweaty. I realized that I must look like a mess. But in times like these, appearance is the least concern. "Well we can\'t seem to get a moment\'s peace and there are men wanting to kill us who are slamming away above," Jessica said. "I hate this place. And at the risk of sounding trite, I just want to go home. To top it all off, I hate the dark." I grunted.', function(){
@@ -775,6 +988,12 @@ $(document).ready(function() {
     }
 
     function downstairsoneone(){
+        $('.yes47').off();
+        $('.no47').off();
+        $('.yes47').on();
+        $('.no47').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: CONTINUE DOWN THE STAIRS</br>Option 2: SIT DOWN</br>Hit 1 or 2:");
         $(".yes47").one("click",function(){
                     addToInstructions('I arrived at the bottom of the stairs. In front of me was a disgusting sight. There was a man with a bloodied butcher\'s frock, a dustmask and a cleaver. On the table next to him was a gutted corpse.', function(){
@@ -789,6 +1008,12 @@ $(document).ready(function() {
     }
 
     function downstairstwo(){
+        $('.yes48').off();
+        $('.no48').off();
+        $('.yes48').on();
+        $('.no48').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK</br>Option 2: TALK</br>Hit 1 or 2:");
         $(".yes48").one("click",function(){
                     addToInstructions("Without delay, I raised my pistol and shot him in between the eyes. He collapsed several feet backward and landed flat on his back. Suddenly another person entered the room. He had a long knife.", function(){
@@ -802,6 +1027,12 @@ $(document).ready(function() {
     }
 
     function downstairsthree(){
+        $('.yes49').off();
+        $('.no49').off();
+        $('.yes49').on();
+        $('.no49').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SHOOT</br>Option 2: ORDER HIM TO DROP KNIFE</br>Hit 1 or 2:");
         $(".yes49").one("click",function(){
                     msg="<p>I pulled the trigger. Bam! He dodged to the left and I missed! I attempted another shot but he was upon me. His knife slid deep into my right eye. The pain was deathly. I saw red and this is the end of my story.</p>";
@@ -815,6 +1046,12 @@ $(document).ready(function() {
     }
 
     function downstairsfour(){
+        $('.yes50').off();
+        $('.no50').off();
+        $('.yes50').on();
+        $('.no50').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: TIE HIM UP</br>Option 2: WALK PAST HIM</br>Hit 1 or 2:");
         $(".yes50").one("click",function(){
                     addToInstructions("I grabbed the rope. I had learned knots as a child. I couldn't recall all the names but I remembered how to tie the knots I felt were useful. I grabbed the man's arm and he struggled. He took a swing at me and I brought the butt of my pistol on the back of his head. He yelped but continued struggling. I hit him again on the top of his head and knocked him unconscious. I tied him to the leg of a nearby table that was secured to the floor, arms behind his back.", function(){
@@ -828,6 +1065,12 @@ $(document).ready(function() {
     }
 
     function downstairsfourfour(){
+        $('.yes51').off();
+        $('.no51').off();
+        $('.yes51').on();
+        $('.no51').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE ROOM</br>Option 2: LOOK FOR A WAY OUT</br>Hit 1 or 2:");
         $(".yes51").one("click",function(){
                     addToInstructions("I finally had a moment to scan the room. The butcher lay in a pool of mixed blood on the floor. There were two doors. One on the left and another further to my right.", function(){
@@ -842,6 +1085,12 @@ $(document).ready(function() {
     }
 
     function downstairsfourfourfour(){
+        $('.yes52').off();
+        $('.no52').off();
+        $('.yes52').on();
+        $('.no52').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR TO THE LEFT</br>Option 2: OPEN THE DOOR TO THE RIGHT</br>Hit 1 or 2:");
         $(".yes52").one("click",function(){
                     $("#instructions").html("I opened the door on the left. It was a closet. Inside was some clean clothing. I was filthy and decided to change my clothes. Jessica turned away. The fresh attire was nice. Jessica and I traded places and she changed into a clean shirt. Left with no other options besides going backwards, we headed out the door on the right.", function(){
@@ -860,6 +1109,12 @@ $(document).ready(function() {
     }
 
     function downstairsfive(){
+        $('.yes53').off();
+        $('.no53').off();
+        $('.yes53').on();
+        $('.no53').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: WAIT FOR THEM TO ARRIVE AND FIGHT</br>Option 2: HEAD INTO THE DARKNESS</br>Hit 1 or 2:");
         $(".yes53").one("click",function(){
                     msg = "<p>I readied my pistol, aiming it toward the door. A man appeared at the bottom of the stairs. His face was filthy and he held a large ax in either hand. BANG! I shot him in the arm. He dropped one ax. Behind him several more large, armed, men arrived in the room. Jessica impaled one of them with her knife. We were no match for them. The last thing I saw was gleaming steel and this is the end of my story.</p>";
@@ -873,6 +1128,12 @@ $(document).ready(function() {
     }
 
     function downstairsfivefive(){
+        $('.yes54').off();
+        $('.no54').off();
+        $('.yes54').on();
+        $('.no54').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SWING MY AX</br>Option 2: STAY STILL</br>Hit 1 or 2:");
         $(".yes54").one("click",function(){
                     addToInstructions("I swung my ax into the darkness. Nothing. Jessica struck out with her knife. A shriek! She had cut someone or something. Then a loud noise from the door behind us. Light shone in the room. Two men with weapons entered. Jessica had stabbed a beast of some sort, barely hurting it. It was large, the size of a small bear and had matted fur. It was like no animal I have ever seen.", function(){
@@ -887,6 +1148,12 @@ $(document).ready(function() {
     }
 
     function downstairssix(){
+        $('.yes55').off();
+        $('.no55').off();
+        $('.yes55').on();
+        $('.no55').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: ATTACK THE MEN</br>Option 2: ATTACK THE BEAST</br>Hit 1 or 2:");
         $(".yes55").one("click",function(){
                     addToInstructions("I shot at one of the men and missed. One of the men yelled and pointed at me. The beast then turned to the men and charged. I grabbed Jessica and made our way to the nearest door. I pulled her out of the room. Shut the door behind us and locked it. I could hear screams from where we had just left. I turned around and found us in a hallway. It was long and there appeared to be only one door. A red door.", function(){
@@ -900,6 +1167,12 @@ $(document).ready(function() {
     }
 
     function downstairssixsix(){
+        $('.yes56').off();
+        $('.no56').off();
+        $('.yes56').on();
+        $('.no56').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: SEARCH THE HALLWAY</br>Option 2: GO THROUGH THE DOOR</br>Hit 1 or 2:");
         $(".yes56").one("click",function(){
                     $("#instructions").html('"Let\'s look around," I told Jessica. I scanned the walls, floor and ceiling. They were barren. No doors. No windows. Just a long, undecorated hallway. "I can\'t find anything," Jessica said. So, we headed toward the door.<p>We walked down the long hallway and reached the door. We opened the door. And we were outside again! "This time, we are getting out of here." I said. We were in a sort of yard; there was an iron door leading into a separate building and there was a large fence. This fence wasn\'t like the last one though. It was a wooden fence. Behind us a man opened the door. He held a rifle and he laughed. He had a stained flannel shirt on, old blue jeans and no shoes. His face was scarred and evil.</p>', function(){
@@ -914,6 +1187,12 @@ $(document).ready(function() {
     }
 
     function downstairsseven(){
+        $('.yes57').off();
+        $('.no57').off();
+        $('.yes57').on();
+        $('.no57').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br>WHAT DID I DO?</br>Option 1: SHOOT THE MAN</br>Option 2: RUN FOR THE FENCE</br>Hit 1 or 2:");
         $(".yes57").one("click",function(){
                     addToInstructions('I shot the man in the face. He died instantly. I knew more would be coming. We ran over to the fence and I kicked at the planks. They were very solid. Jessica did the same. "I found a loose one!" She yelled. We both took turns at kicking it in. The boards shattered and there was enough room for one of us to make it through. Three more men entered the yard.', function(){
@@ -927,6 +1206,12 @@ $(document).ready(function() {
     }
 
     function endone(){
+        $('.yes58').off();
+        $('.no58').off();
+        $('.yes58').on();
+        $('.no58').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: GO THROUGH THE FENCE FIRST</br>Option 2: LET JESSICA GO THROUGH FIRST</br>Hit 1 or 2:");
         $(".yes58").one("click",function(){
                 msg="<p>I crawled through the fence. Jessica was behind me. I heard a gun shot. Jessica yelled and fell to the dirt. I stood up and looked behind. The men were running towards me, shooting. I began to run. A bullet tore at my leg. I stumbled and dropped my pistol. Another in my lower back. I fell. I crawled further but a final bullet ended me. And this is the end of my story.</p>";
@@ -940,6 +1225,12 @@ $(document).ready(function() {
     }
 
     function endtwo(){
+        $('.yes59').off();
+        $('.no59').off();
+        $('.yes59').on();
+        $('.no59').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: FIGHT THEM</br>Option 2: RUN INTO THE BUILDING</br>Hit 1 or 2:");
         $(".yes59").one("click",function(){
                 msg="<p>I gripped my ax and ran toward the men. One of them sidestepped and punched me in the side of my face. I was dazed and I dropped my ax. I reached down to pick up my weapon and felt another blow on the back of my head. I collapsed next to the group. The men proceeded to kick my head in and this is the end of my story.</p>";
@@ -959,6 +1250,12 @@ $(document).ready(function() {
     }
 
     function finalone(){
+        $('.yes60').off();
+        $('.no60').off();
+        $('.yes60').on();
+        $('.no60').on();
+        $('#buttonOptions').show();
+        $('#buttonYes').hide();
         addToInstructions("Please click 'submit'<br>");
         $(".yes60").one("click",function(){
                 finaltwo();
@@ -980,20 +1277,22 @@ $(document).ready(function() {
         $('#buttonYes').show();
         $('#yes').off();
         $('#no').off();
-        $('.yesDead').unbind();
-        $('.noDead').unbind();
+        $('.yesDead').off();
+        $('.noDead').off();
         
-
-
         addToInstructions(why+"<br> I died. <br>Would you like to play again? <br> Please Hit yes or no");
             $(".yesDead").one("click",function(){
                 addToInstructions("Back into hell you go...");
                 $('.buttonOptions').show();
                 $('.buttonYes').hide();
+                // $('.yesDead').off();
+                // $('.noDead').off();
                 progress();
             });
             $(".noDead").one("click",function(){
                 addToInstructions("Smart decision. Get out while you still can.", function() {
+                // $('.yesDead').off();
+                // $('.noDead').off();
                 return;
             });
             });

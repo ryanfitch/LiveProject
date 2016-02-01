@@ -1,67 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Text-Based HORROR!</title>
-<link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<script type="text/javascript" src="scripts/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="scripts/gameScript_1-13-16.js"></script>
-<script src="scripts/typed.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text-Based HORROR!</title>
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="scripts/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="scripts/gameScript_1-13-16.js"></script>
+    <script src="scripts/typed.js"></script>
 </head>
+
 <body>
-<br>
 
-<p id="intro"></p>
+    <div id="container">
+        <div id="header">
+            <br>
+            <p id="intro"></p>
+            <p id="story"></p>    
+        </div>
 
-<p id="story"></p>    
+        <div id="content">
+            <p id="instructions"></p>
+            <p id="instructions2"></p>
 
-<p id="instructions"></p>
-<p id="instructions2"></p>
-
-<div id="textInput">
-    <input type="text" id="myText" value="">
-    <button type="button" id="button" class="btn btn-lg btn-default">Submit</button>
-</div>
+            <div id="textInput">
+                <input type="text" id="myText" value="">
+                <button type="button" id="button" class="btn btn-lg btn-default">Submit</button>
+            </div>
 
 
-<p id= "buttonYes">
-    <button type="button" class = "btn btn-lg btn-default yes1 yes2 yesDead">Yes</button>
-    <button type="button" class = "btn btn-lg btn-default no1 no2 noDead">No</button>
-</p>
+            <p id= "buttonYes">
+                <button type="button" class = "btn btn-lg btn-default yes1 yes2 yesDead">Yes</button>
+                <button type="button" class = "btn btn-lg btn-default no1 no2 noDead">No</button>
+            </p>
 
-<p id="buttonOptions">
-    <button id="yes" type="button" class="btn btn-lg btn-default yes3 yes4 yes5 yes6 yes7 yes8 yes9 yes10 yes11 yes12 yes13 yes14 yes15 yes16 yes17 yes18 yes19 yes20 yes21 yes22 yes23 yes24 yes25 yes26 yes27 yes28 yes29 yes30 yes31 yes32 yes33 yes34 yes35 yes36 yes37 yes38 yes39 yes40 yes41 yes42 yes43 yes44 yes45 yes46 yes47 yes48 yes49 yes50 yes51 yes52 yes53 yes54 yes55 yes56 yes57 yes58 yes59 yes60">Option 1</button>
-    <button id = "no" type="button" class="btn btn-lg btn-default no3 no4 no5 no6 no7 no8 no9 no10 no11 no12 no13 no14 no15 no16 no17 no18 no19 no20 no21 no22 no23 no24 no25 no26 no27 no28 no29 no30 no31 no32 no33 no34 no35 no36 no37 no38 no39 no40 no41 no42 no43 no44 no45 no46 no47 no48 no49 no50 no51 no52 no53 no54 no55 no56 no57 no58 no59 no60">Option 2</button>
-</p>
+            <p id="buttonOptions">
+                <button id="yes" type="button" class="btn btn-lg btn-default yes3 yes4 yes5 yes6 yes7 yes8 yes9 yes10 yes11 yes12 yes13 yes14 yes15 yes16 yes17 yes18 yes19 yes20 yes21 yes22 yes23 yes24 yes25 yes26 yes27 yes28 yes29 yes30 yes31 yes32 yes33 yes34 yes35 yes36 yes37 yes38 yes39 yes40 yes41 yes42 yes43 yes44 yes45 yes46 yes47 yes48 yes49 yes50 yes51 yes52 yes53 yes54 yes55 yes56 yes57 yes58 yes59 yes60">Option 1</button>
+                <button id = "no" type="button" class="btn btn-lg btn-default no3 no4 no5 no6 no7 no8 no9 no10 no11 no12 no13 no14 no15 no16 no17 no18 no19 no20 no21 no22 no23 no24 no25 no26 no27 no28 no29 no30 no31 no32 no33 no34 no35 no36 no37 no38 no39 no40 no41 no42 no43 no44 no45 no46 no47 no48 no49 no50 no51 no52 no53 no54 no55 no56 no57 no58 no59 no60">Option 2</button>
+            </p>
 
-<!-- <div class="btn-group" role="group" id="coffins">
-    <p>Coffins</p>
-    <button type="button" class="btn btn-danger">1</button>
-    <button type="button" class="btn btn-danger">2</button>
-    <button type="button" class="btn btn-danger">3</button>
-    <button type="button" class="btn btn-danger">4</button>
-    <button type="button" class="btn btn-danger">5</button>
-    <button type="button" class="btn btn-danger">6</button>
-    <button type="button" class="btn btn-danger">7</button>
-    <button type="button" class="btn btn-danger">8</button>
-    <button type="button" class="btn btn-danger">9</button>
-    <button type="button" class="btn btn-danger">10</button>
-    <button type="button" class="btn btn-danger">11</button>
-    <button type="button" class="btn btn-danger">12</button>
-    <button type="button" class="btn btn-danger">13</button>
-    <button type="button" class="btn btn-danger">14</button>
-    <button type="button" class="btn btn-danger">15</button>
-    <button type="button" class="btn btn-danger">16</button>
-    <button type="button" class="btn btn-danger">17</button>
-</div> -->
+            <!-- <div class="btn-group" role="group" id="coffins">
+                <p>Coffins</p>
+                <button type="button" class="btn btn-danger">1</button>
+                <button type="button" class="btn btn-danger">2</button>
+                <button type="button" class="btn btn-danger">3</button>
+                <button type="button" class="btn btn-danger">4</button>
+                <button type="button" class="btn btn-danger">5</button>
+                <button type="button" class="btn btn-danger">6</button>
+                <button type="button" class="btn btn-danger">7</button>
+                <button type="button" class="btn btn-danger">8</button>
+                <button type="button" class="btn btn-danger">9</button>
+                <button type="button" class="btn btn-danger">10</button>
+                <button type="button" class="btn btn-danger">11</button>
+                <button type="button" class="btn btn-danger">12</button>
+                <button type="button" class="btn btn-danger">13</button>
+                <button type="button" class="btn btn-danger">14</button>
+                <button type="button" class="btn btn-danger">15</button>
+                <button type="button" class="btn btn-danger">16</button>
+                <button type="button" class="btn btn-danger">17</button>
+            </div> -->
+        </div>
 
-<div class="container" class="footer">
-    <footer>A game created by Prosper I.T. Consulting Inc. (c) 2015, all rights reserved.</footer>
-</div>
+        <div id="footer">
+            <footer>A game created by Prosper I.T. Consulting Inc. (c) 2015, all rights reserved.</footer>
+        </div>
+
+    </div>
 
 </body>
 </html>
