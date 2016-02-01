@@ -1,7 +1,8 @@
 $(document).ready(function() {
     $(function() {
             var name = "";
-            start();
+            var choice = 0;
+            final();
 
         });
 
@@ -876,9 +877,9 @@ $(document).ready(function() {
     }
 
     function coffinone(){
-        $("#yes1").hide();
-        $("#no2").hide();
-        $("textInput").show();
+        $("#buttonOptions").hide();
+        $("#buttonYes").hide();
+        $("#textInput").show();
         addToInstructions("<br>Which coffin did I open first?</br>choose a numeral from 1-17");
         $("#button").one("click",function(){
             var choice = document.getElementById("myText").value;
@@ -905,12 +906,12 @@ $(document).ready(function() {
         }
 
     function coffintwo(){
-        $("#yes1").hide();
-        $("#no2").hide();
-        $("textInput").show();
+        $("#buttonOptions").hide();
+        $("#buttonYes").hide();
+        $("#textInput").show();
         addToInstructions("<br>Which coffin did I open second?</br>choose a numeral from 1-17");
         $("#button").one("click",function(){
-            var choice = document.getElementById("myText").value;
+            choice = document.getElementById("myText").value;
             if(choice != 3 && choice != 17){
                 msg="<p>I reached down and opened the lid. There was a bright flash and explosion. I briefly could feel my flesh burning, then I thought of Jessica...and this is the end of my story.</p>";
             deadanddead(msg, coffintwo);
@@ -939,9 +940,9 @@ $(document).ready(function() {
             }
 
     function coffinthree(){
-        $("#yes1").hide();
-        $("#no2").hide();
-        $("textInput").show();
+        $("#buttonOptions").hide();
+        $("#buttonYes").hide();
+        $("#textInput").show();
         addToInstructions("</br>Which coffin did I open third?</br>choose a numeral from 1-17");
         $("#button").one("click",function(){
         var choice = document.getElementById("myText").value;
@@ -979,6 +980,7 @@ $(document).ready(function() {
         $('.no46').on();
         $('#buttonOptions').show();
         $('#buttonYes').hide();
+        $("#textInput").hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: BLOCK THE DOOR WITH A COFFIN</br>Option 2: HIDE IN A COFFIN</br>Hit 1 or 2:");
         $(".yes46").one("click",function(){
                     addToInstructions('We pushed a coffin against the door. It was very heavy and I broke a sweat. The stairs finished moving into place and there was a pounding at the door. I really had no choice. We headed down the stairs. The stairs were made of stone. There was no light on the staircase but I could make out a dim glow at the bottom. The pounding above continued but the door was thick and the coffin heavy. I looked at Jessica. She was dirty and sweaty. I realized that I must look like a mess. But in times like these, appearance is the least concern. "Well we can\'t seem to get a moment\'s peace and there are men wanting to kill us who are slamming away above," Jessica said. "I hate this place. And at the risk of sounding trite, I just want to go home. To top it all off, I hate the dark." I grunted.', function(){
@@ -1097,7 +1099,7 @@ $(document).ready(function() {
         $('#buttonYes').hide();
         addToInstructions("<br><br>WHAT DID I DO?</br>Option 1: OPEN THE DOOR TO THE LEFT</br>Option 2: OPEN THE DOOR TO THE RIGHT</br>Hit 1 or 2:");
         $(".yes52").one("click",function(){
-                    $("#instructions").html("I opened the door on the left. It was a closet. Inside was some clean clothing. I was filthy and decided to change my clothes. Jessica turned away. The fresh attire was nice. Jessica and I traded places and she changed into a clean shirt. Left with no other options besides going backwards, we headed out the door on the right.", function(){
+                    addToInstructions("I opened the door on the left. It was a closet. Inside was some clean clothing. I was filthy and decided to change my clothes. Jessica turned away. The fresh attire was nice. Jessica and I traded places and she changed into a clean shirt. Left with no other options besides going backwards, we headed out the door on the right.", function(){
                         rightdoor();
                     });
                 });
@@ -1248,8 +1250,11 @@ $(document).ready(function() {
     }
 
     function final(){
-        addToInstructions("<p>I turned and ran toward the nearby building. Jessica had escaped. The men had turned their attention to me. One of them threw a knife. I dodged it. The yard now had around ten people in it, all rapidly making their way toward me.  I reached the door and turned the handle. The door was very heavy and I pushed it open. I quickly locked the door behind me. The door not only had a deadbolt lock, it had a sliding bar that latched it shut. It looked very sturdy. I paused for a moment, dreading whatever existed behind me. What I'd gone through so far had left me strung out and pessimistic. I slowly turned. It was a bright, well-furnished room. Behind a long cherry oak desk sat three people. They were older men, who smiled at me. In front of them lay clipboards and files. The room was styled in a reddish-brown fashion and behind them roared a pleasant fire. I heard a bang on the iron door behind me. One of the men at the table pushed a button on a panel in front of them and there was then silence. I stared, dumbfounded at the change in scenery and too tired to act quickly. Finally one of the men spoke, \"Well done" + name +". You're the first person to make it through.\" He sat in the middle of the table. White hair, glasses and thin. \"Make it through what?\" I asked. \"Consider it a test of the human brain.\" \"The man replied. \"Tonight, you've been presented several choices. Each of which has led you here. Had you chosen wrong at any point, we would have never met.\" \"I don't understand...\" I said. The man to the left spoke, \"We are running the 'Human Choice Program'.\" This man had black hair, with a beard. He was bald and had shark, dark eyes.</p> <p>\"We have been taking critics of our company and systematically entering them into this program. Of course, many of them died in the process. We figured it was fine since they were to be assassinated anyways.\" \"Wait... You''re saying that this whole thing is a game?\" I asked, completely baffled. The middle man spoke again. \"No sir. Those are real people with weapons. Each of them are psychotic patients that we have armed and told to kill you. We have outfitted around 100 psychiatric patients and run this project. Before you, they have eliminated many threats for us.\"</p><p>The man on the left joined in, \"You're on a highly controlled base. Each of the patients has a chip implanted in their head which allows us to administer varying levels of shocks. From 'slap on the wrist' to 'death'. If any of them disagrees with us or refuses to follow orders, we kill them with the push of a button.\" I started making some sense of things and asked, \"So, earlier you mentioned using this base to silence critics - what does that mean exactly?\" The remaining man who had up to now remained quiet, spoke. \"We are the psychiatric department of Mankley Industries. The major international company that handles things ranging from weapons to pharmaceutical drugs. As you can imagine, we have our fair share of antagonists. As the head of the mental health council, we've been charged with the removal of those who attempt exposing the company.\" \"What do I have to do with that?\" I asked. I noticed at this point, screens with security camera feeds. I could see the rooms Jessica and I had been in. They had been watching us. The white-haired man spoke again. \"You work for a major blog site. You were doing an article on disappearances of people investigating Mankley Industries. Now of course you don't remember that, because we have wiped your memory. You'd be surprised about what the right combination of drugs and electric shock can do.\" At that moment, memories poured in. I fell to one knee. It was a completely foreign and new experience. Years streamed back into my mind. \"Prior to your arrival, we had successfully run 132 people through this experiment.\" The man continued. \"All have died. It has shown us much insight into the human mind and the choices people make when under stress. We obviously will need to make it more challenging since you made it through but we figured these people were slated to die already so we might as well learn from it.\" The combination of my fatigue, the returned memories and the sheer evil I was confronting overwhelmed me. I backed into a corner and sat down. The man with the beard began speaking again, \"Now, before we kill you, we have a few questions. First, what did you learn from this?\"</p><p>WHAT DID I DO?</p><p>To be continued...</p>", function(){
-            finalone();
+        $('#buttonOptions').hide();
+        $('#buttonYes').hide();
+        $('#textInput').hide();
+        addToInstructions("<p>I turned and ran toward the nearby building. Jessica had escaped. The men had turned their attention to me. One of them threw a knife. I dodged it. The yard now had around ten people in it, all rapidly making their way toward me.  I reached the door and turned the handle. The door was very heavy and I pushed it open. I quickly locked the door behind me. The door not only had a deadbolt lock, it had a sliding bar that latched it shut. It looked very sturdy. I paused for a moment, dreading whatever existed behind me. What I'd gone through so far had left me strung out and pessimistic. I slowly turned. It was a bright, well-furnished room. Behind a long cherry oak desk sat three people. They were older men, who smiled at me. In front of them lay clipboards and files. The room was styled in a reddish-brown fashion and behind them roared a pleasant fire. I heard a bang on the iron door behind me. One of the men at the table pushed a button on a panel in front of them and there was then silence. I stared, dumbfounded at the change in scenery and too tired to act quickly. Finally one of the men spoke, \"Well done " + name +". You're the first person to make it through.\" He sat in the middle of the table. White hair, glasses and thin. \"Make it through what?\" I asked. \"Consider it a test of the human brain.\" \"The man replied. \"Tonight, you've been presented several choices. Each of which has led you here. Had you chosen wrong at any point, we would have never met.\" \"I don't understand...\" I said. The man to the left spoke, \"We are running the 'Human Choice Program'.\" This man had black hair, with a beard. He was bald and had shark, dark eyes.</p> <p>\"We have been taking critics of our company and systematically entering them into this program. Of course, many of them died in the process. We figured it was fine since they were to be assassinated anyways.\" \"Wait... You''re saying that this whole thing is a game?\" I asked, completely baffled. The middle man spoke again. \"No sir. Those are real people with weapons. Each of them are psychotic patients that we have armed and told to kill you. We have outfitted around 100 psychiatric patients and run this project. Before you, they have eliminated many threats for us.\"</p><p>The man on the left joined in, \"You're on a highly controlled base. Each of the patients has a chip implanted in their head which allows us to administer varying levels of shocks. From 'slap on the wrist' to 'death'. If any of them disagrees with us or refuses to follow orders, we kill them with the push of a button.\" I started making some sense of things and asked, \"So, earlier you mentioned using this base to silence critics - what does that mean exactly?\" The remaining man who had up to now remained quiet, spoke. \"We are the psychiatric department of Mankley Industries. The major international company that handles things ranging from weapons to pharmaceutical drugs. As you can imagine, we have our fair share of antagonists. As the head of the mental health council, we've been charged with the removal of those who attempt exposing the company.\" \"What do I have to do with that?\" I asked. I noticed at this point, screens with security camera feeds. I could see the rooms Jessica and I had been in. They had been watching us. The white-haired man spoke again. \"You work for a major blog site. You were doing an article on disappearances of people investigating Mankley Industries. Now of course you don't remember that, because we have wiped your memory. You'd be surprised about what the right combination of drugs and electric shock can do.\" At that moment, memories poured in. I fell to one knee. It was a completely foreign and new experience. Years streamed back into my mind. \"Prior to your arrival, we had successfully run 132 people through this experiment.\" The man continued. \"All have died. It has shown us much insight into the human mind and the choices people make when under stress. We obviously will need to make it more challenging since you made it through but we figured these people were slated to die already so we might as well learn from it.\" The combination of my fatigue, the returned memories and the sheer evil I was confronting overwhelmed me. I backed into a corner and sat down. The man with the beard began speaking again, \"Now, before we kill you, we have a few questions. First, what did you learn from this?\"</p><p>WHAT DID I DO?</p><p>To be continued...</p>", function(){
+            finaltwo();
         });
     }
 
