@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    var scrollDownPageLoop;
+    
     $(function() {
             var name = "";
             var choice = 0;
@@ -17,20 +20,27 @@ $(document).ready(function() {
 
     function naming(){
         $("#textInput").show();
+        $('.yes1').off();
+        $('.no1').off();
+        $('.yes1').on();
+        $('.no1').on();
+        $("#button").off();
+        $("#button").on();
         $("#instructions").empty();
         addToInstructions("^750</br>What is my name?");
         $("#button").one("click",function(){
             name = document.getElementById("myText").value;
             if ( name !== "" ) {
                 addToInstructions("Is " +name+" my correct name? </br>Hit yes or no.");
+                    $("#textInput").hide();
+                    $("#buttonYes").show();
+                    $("#instructions2").empty();
             }
-            else {
+            else  {
+                $("#instructions2").empty();
                 $("#instructions2").append("<br>Please type in my name.");
                 naming();
             }
-
-            $("#textInput").hide();
-            $("#buttonYes").show();
             $(".yes1").one( "click", function(){
                     namingnaming(name);
                 });
@@ -41,17 +51,42 @@ $(document).ready(function() {
     }
 
     function namingnaming(name){
+        $("#textInput").hide();
+        $("#buttonYes").show();
         $("#instructions2").empty();
-        $("#story").typed({strings: ["My name is " +name+".</br>The choices I make determine whether I live or die.</br>This is my story.<hr>"], typeSpeed: -50
+        $("#story").typed({strings: ["My name is " +name+".</br>The choices I make determine whether I live or die.</br>This is my story.<hr>"], typeSpeed: -25
         });
         $("#instructions").empty();
         $("#story").empty();
         play();
     }
 
-    function addToInstructions(newInstruction, callback) {
-        $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : -50 , callback : callback });
-    }
+     function addToInstructions(newInstruction, callback) {
+       startScrollPageDownLoop();
+       $('<p></p>').appendTo($("#instructions")).typed({ strings : [newInstruction], typeSpeed : -25, callback : function() {
+           endScrollPageDownLoop();
+           callback && callback();
+       }});
+   }
+
+
+   function startScrollPageDownLoop() {
+       scrollDownPageLoop = window.setInterval(scrollPageDown, 750);
+   }
+
+   function endScrollPageDownLoop() {
+       scrollPageDown();
+       scrollDownPageLoop && window.clearInterval(scrollDownPageLoop);
+   }
+
+   function scrollPageDown() {
+       var bottomOfScreen = $(document).height();
+       var bottomOfPage = $(window).scrollTop() + $(window).height();
+       if(bottomOfPage < bottomOfScreen) {
+           $(window).scrollTop((bottomOfPage + bottomOfScreen) + $(window).height());
+       }
+   }
+
 
     function play(){
         $("#textInput").hide();
@@ -59,10 +94,10 @@ $(document).ready(function() {
         $('.no2').off();
         $('.yes2').on();
         $('.no2').on();
-        addToInstructions("^1500Do you dare start this horrific journey?  Hit yes or no:");
+        addToInstructions("^2500Do you dare start this horrific journey?  Hit yes or no:");
 
         $(".yes2").one( "click", function(){
-            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!, You were warned..."], typeSpeed: -50
+            $("<p></p>").appendTo($("#story")).typed({ strings: ["Goodluck!  You were warned..."], typeSpeed: -25
             });
             $("#instructions").empty();
             $("#buttonOptions").show();
