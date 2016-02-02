@@ -2,8 +2,7 @@ $(document).ready(function() {
     $(function() {
             var name = "";
             var choice = 0;
-            final();
-
+            start();
         });
 
 
